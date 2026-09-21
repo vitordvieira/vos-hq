@@ -729,11 +729,11 @@
         <div>
           <div class="eyebrow">ESTRUTURA ORGANIZACIONAL DA EMPRESA</div>
           <h2>35 Cadeiras · 100% Operada por IA</h2>
-          <p>O Núcleo de Receita & Vendas (Ciclo 1) está 100% construído e aprovado. Todos os agentes possuem governança de confiança (C1 a C4) e acesso a dados estruturados.</p>
+          <p>Núcleo Comercial 100% aprovado (6 agentes) e Núcleo de Produto em validação (Agent 04). Todos os agentes possuem governança de confiança (C1 a C4) e acesso a dados estruturados.</p>
         </div>
         <div class="hero-stat">
           <div class="num">6 / 35</div>
-          <div class="sub">Cadeiras Ativas</div>
+          <div class="sub">Aprovados (+1 Validação)</div>
         </div>
       </div>
 
@@ -837,6 +837,36 @@
                   </div>
                 </div>
                 <span class="node-badge badge-app">APPROVED</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Squad: Produto & Oferta (Ciclo 1) -->
+          <div class="squad-box highlight-squad">
+            <div class="squad-header">
+              <span class="squad-title">Produto & Oferta (Ciclo 1)</span>
+              <span class="squad-status badge-app">EM VALIDAÇÃO</span>
+            </div>
+            <div class="squad-nodes">
+              <div class="squad-node approved" onclick="openDrawer('04-product')">
+                <div class="sn-left">
+                  <div class="sn-id">04</div>
+                  <div class="sn-info">
+                    <h5>Product Agent</h5>
+                    <p>Catálogo & Pipeline Áudio</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-app">VALIDATION</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('05-offer')">
+                <div class="sn-left">
+                  <div class="sn-id">05</div>
+                  <div class="sn-info">
+                    <h5>Offer Agent</h5>
+                    <p>Empacotamento & Preços</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
               </div>
             </div>
           </div>
@@ -1288,6 +1318,41 @@
           'Controle de relatórios multinível (diário, semanal, quinzenal e mensal).'
         ],
         files: ['01-discovery/MISSION.md', '02-questionnaire/QUESTIONNAIRE.md', '03-specification/SPECIFICATION.md', '04-prompt/SYSTEM-PROMPT.md', '05-workflows/WORKFLOWS.md', '06-tests/TEST-CASES.md']
+      },
+      '04-product': {
+        id: '04',
+        name: 'Product Agent',
+        avatar: '04',
+        status: 'VALIDATION',
+        statusBg: '#eff6ff',
+        statusColor: 'var(--accent)',
+        trust: 'C1 (Supervisionado)',
+        access: 'Nível 1 e 2 (Comercial / Operacional)',
+        mission: 'Desenhar, padronizar, empacotar e evoluir o catálogo de produtos e serviços da Vieira Digital.',
+        responsibilities: [
+          'Catálogo de 5 linhas oficiais (Diagnóstico R$ 397, Implementação R$ 10k-15k, Manutenção Bimestral R$ 2k, Assessor e Hub Severino).',
+          'Pipeline automatizado de áudio/reunião para tarefas estruturadas no ClickUp com Google Drive.',
+          'Esteira de produção paralela de ativos (VSL desdobra copy, anúncios e e-mails simultaneamente).',
+          'Treinamento prático de adesão da equipe + playbooks gravados para novos colaboradores (zero vendor lock-in).'
+        ],
+        files: ['01-discovery/MISSION.md', '02-questionnaire/QUESTIONNAIRE.md', '03-specification/SPECIFICATION.md', '04-prompt/SYSTEM-PROMPT.md', '05-workflows/WORKFLOWS.md', '06-tests/TEST-CASES.md']
+      },
+      '05-offer': {
+        id: '05',
+        name: 'Offer Agent',
+        avatar: '05',
+        status: 'BACKLOG',
+        statusBg: '#f1f5f9',
+        statusColor: 'var(--text-2)',
+        trust: 'C1 (Supervisionado)',
+        access: 'Nível 1 e 2 (Comercial / Operacional)',
+        mission: 'Transformar o catálogo de produtos em ofertas irresistíveis, empacotamento comercial e precificação estratégica.',
+        responsibilities: [
+          'Desenho de propostas de valor e pacotes de serviços.',
+          'Precificação estratégica e ancoragem comercial.',
+          'Criação de esteiras de progressão de ticket por cliente.'
+        ],
+        files: ['01-discovery/MISSION.md (Pendente)', '03-specification/SPECIFICATION.md (Pendente)']
       }
     };
 
