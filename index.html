@@ -3,68 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Vieira Digital — v.os Virtual Headquarters</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Vieira Digital — Organograma Executivo v.os</title>
   <style>
     :root {
-      --bg-canvas: #f8fafc;
-      --bg-surface: #ffffff;
-      --bg-surface-elevated: #ffffff;
-      --border-light: #e2e8f0;
-      --border-focus: #0284c7;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-tertiary: #94a3b8;
-      --accent-blue: #0284c7;
-      --accent-blue-light: #e0f2fe;
-      --accent-emerald: #059669;
-      --accent-emerald-light: #d1fae5;
-      --accent-amber: #d97706;
-      --accent-amber-light: #fef3c7;
-      --accent-purple: #7c3aed;
-      --accent-purple-light: #ede9fe;
-      --accent-rose: #e11d48;
-      --accent-rose-light: #ffe4e6;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -1px rgba(0,0,0,0.03);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
-      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
+      --accent: #0071E3;
+      --accent-2: #6BB6FF;
+      --accent-emerald: #34C759;
+      --accent-emerald-bg: rgba(52, 199, 89, 0.12);
+      --bg: #F5F5F7;
+      --surface: #FFFFFF;
+      --text: #1D1D1F;
+      --text-2: #6E6E73;
+      --border: #D2D2D7;
+      --dark: #0B0B0D;
+      --card-shadow: 0 2px 4px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: var(--bg-canvas);
-      color: var(--text-primary);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
       min-height: 100vh;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
     }
 
-    /* Top Clean Header */
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-light);
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      padding: 12px 24px;
+    /* Auth Gate Screen */
+    #authGate {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .header-wrap {
+    .auth-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 32px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+    }
+
+    .auth-logo {
+      width: 48px;
+      height: 48px;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .auth-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .auth-sub {
+      font-size: 13px;
+      color: var(--text-2);
+      margin-bottom: 24px;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 15px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      margin-bottom: 14px;
+      font-family: inherit;
+      text-align: center;
+      letter-spacing: 0.1em;
+      transition: border-color 0.2s;
+    }
+
+    .auth-input:focus {
+      border-color: var(--accent);
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .auth-btn:hover {
+      background: #005bb5;
+    }
+
+    .auth-err {
+      color: #ff3b30;
+      font-size: 12px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* Main Dashboard Layout */
+    #dashboardApp {
+      display: none;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    header.top-bar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 28px;
+    }
+
+    .top-container {
       max-width: 1440px;
       margin: 0 auto;
       display: flex;
@@ -74,385 +151,421 @@
       flex-wrap: wrap;
     }
 
-    .brand-group {
+    .brand-area {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .brand-badge {
+    .brand-icon {
       width: 36px;
       height: 36px;
-      background: #0f172a;
-      color: #ffffff;
-      border-radius: var(--radius-md);
+      background: var(--dark);
+      color: #fff;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 16px;
-      letter-spacing: -0.02em;
     }
 
-    .brand-title h1 {
+    .brand-name {
       font-size: 16px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--text-primary);
     }
 
-    .brand-title p {
+    .brand-tag {
       font-size: 12px;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      color: var(--text-2);
     }
 
-    .live-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--accent-emerald);
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
-    }
-
-    /* Stats Bar */
-    .stats-row {
+    .kpi-strip {
       display: flex;
-      align-items: center;
       gap: 20px;
+      align-items: center;
       flex-wrap: wrap;
     }
 
-    .stat-box {
+    .kpi-col {
       display: flex;
       flex-direction: column;
     }
 
-    .stat-label {
+    .kpi-lbl {
       font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text-tertiary);
-      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--text-2);
     }
 
-    .stat-value {
+    .kpi-txt {
       font-size: 14px;
       font-weight: 700;
-      color: var(--text-primary);
-      font-family: 'JetBrains Mono', monospace;
+      color: var(--text);
     }
 
-    .stat-value.highlight {
-      color: var(--accent-emerald);
-    }
+    .kpi-txt.blue { color: var(--accent); }
+    .kpi-txt.green { color: var(--accent-emerald); }
 
-    .progress-bar-container {
-      width: 100px;
-      height: 6px;
-      background: #e2e8f0;
-      border-radius: 99px;
-      overflow: hidden;
-      margin-top: 3px;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      background: var(--accent-emerald);
-      border-radius: 99px;
-    }
-
-    /* Mode Switcher */
-    .mode-switch {
-      display: flex;
-      background: #f1f5f9;
-      padding: 3px;
-      border-radius: var(--radius-md);
-      gap: 2px;
-    }
-
-    .mode-btn {
-      border: none;
-      background: transparent;
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .mode-btn.active {
-      background: #ffffff;
-      color: var(--text-primary);
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* Main Container */
-    main {
+    .main-wrap {
       max-width: 1440px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 40px 24px;
       width: 100%;
       flex: 1;
     }
 
-    /* Spatial Floorplan Layout (Gather Style Clean) */
-    .floorplan {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 20px;
-    }
-
-    .zone {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-xl);
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
+    .hero-banner {
+      background: linear-gradient(155deg, var(--accent), var(--accent-2));
+      border-radius: 18px;
+      padding: 28px 32px;
+      color: #fff;
+      margin-bottom: 36px;
+      box-shadow: 0 8px 24px rgba(0, 113, 227, 0.2);
       display: flex;
-      flex-direction: column;
-    }
-
-    .zone:hover {
-      box-shadow: var(--shadow-md);
-      border-color: #cbd5e1;
-    }
-
-    .zone.active-zone {
-      border-color: #86efac;
-      background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 40%);
-    }
-
-    .zone-head {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .zone-title {
-      display: flex;
       align-items: center;
-      gap: 8px;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .zone-title h3 {
-      font-size: 14px;
+    .hero-banner .eyebrow {
+      font-size: 11px;
       font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .zone-tag {
-      font-size: 10px;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 99px;
       text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 6px;
     }
 
-    .tag-green {
-      background: var(--accent-emerald-light);
-      color: var(--accent-emerald);
+    .hero-banner h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
     }
 
-    .tag-gray {
-      background: #f1f5f9;
-      color: var(--text-secondary);
+    .hero-banner p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 600px;
     }
 
-    .tag-purple {
-      background: var(--accent-purple-light);
-      color: var(--accent-purple);
+    .hero-stat {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-align: right;
     }
 
-    .tag-rose {
-      background: var(--accent-rose-light);
-      color: var(--accent-rose);
+    .hero-stat .num {
+      font-size: 24px;
+      font-weight: 800;
     }
 
-    /* Desks Layout */
-    .desks-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 12px;
+    .hero-stat .sub {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.85);
     }
 
-    .desk {
-      background: #f8fafc;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 12px;
+    /* Visual Organogram Tree */
+    .organogram-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.15s ease;
+      width: 100%;
       position: relative;
     }
 
-    .desk:hover {
-      background: #ffffff;
-      border-color: var(--border-focus);
-      box-shadow: var(--shadow-md);
+    .tree-level {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    /* Vertical Connection Line */
+    .v-line {
+      width: 2px;
+      height: 32px;
+      background: var(--border);
+      margin: 0 auto;
+    }
+
+    /* Nodes */
+    .node-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      text-align: left;
+    }
+
+    .node-card:hover {
       transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.08);
+      border-color: var(--accent);
     }
 
-    .desk.active-agent {
+    .node-ceo {
+      max-width: 380px;
+      width: 100%;
+      border-color: var(--accent);
       background: #ffffff;
-      border-color: #a7f3d0;
-      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08);
     }
 
-    .desk.active-agent::after {
+    .node-ceo .node-icon {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .node-cos {
+      max-width: 360px;
+      width: 100%;
+    }
+
+    .node-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: var(--text-2);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .node-card.approved .node-icon {
+      background: var(--accent-emerald-bg);
+      color: var(--accent-emerald);
+    }
+
+    .node-card.approved {
+      border-color: #86efac;
+    }
+
+    .node-card.approved::after {
       content: '';
       position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 7px;
-      height: 7px;
+      top: 10px;
+      right: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--accent-emerald);
     }
 
-    .desk-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-md);
-      background: #e2e8f0;
-      color: var(--text-secondary);
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
+    .node-text h4 {
       font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-    }
-
-    .desk.active-agent .desk-avatar {
-      background: var(--accent-emerald-light);
-      color: var(--accent-emerald);
-    }
-
-    .desk-ceo .desk-avatar {
-      background: #0f172a;
-      color: #ffffff;
-    }
-
-    .desk-name {
-      font-size: 12px;
       font-weight: 700;
-      color: var(--text-primary);
       margin-bottom: 2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
+      color: var(--text);
     }
 
-    .desk-role {
+    .node-text p {
+      font-size: 12px;
+      color: var(--text-2);
+      margin: 0;
+    }
+
+    .node-badge {
+      display: inline-block;
       font-size: 10px;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-    }
-
-    .desk-badge {
-      font-size: 9px;
-      font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
       padding: 2px 6px;
       border-radius: 4px;
       text-transform: uppercase;
+      margin-top: 4px;
     }
 
-    .desk.active-agent .desk-badge {
-      background: var(--accent-emerald-light);
+    .badge-app {
+      background: var(--accent-emerald-bg);
       color: var(--accent-emerald);
     }
 
-    .desk.backlog-agent .desk-badge {
+    .badge-back {
       background: #f1f5f9;
-      color: var(--text-tertiary);
+      color: var(--text-2);
     }
 
-    /* Grid Layout Spans */
-    .z-ceo { grid-column: span 12; }
-    .z-commercial { grid-column: span 12; }
-    .z-ops { grid-column: span 6; }
-    .z-pmo { grid-column: span 6; }
-    .z-mkt { grid-column: span 4; }
-    .z-cs { grid-column: span 4; }
-    .z-ai { grid-column: span 4; }
-    .z-fin { grid-column: span 6; }
-    .z-strat { grid-column: span 6; }
-
-    @media (max-width: 1024px) {
-      .z-ops, .z-pmo, .z-fin, .z-strat { grid-column: span 12; }
-      .z-mkt, .z-cs, .z-ai { grid-column: span 12; }
+    /* Squad Clusters Grid */
+    .squads-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+      margin-top: 10px;
     }
 
-    @media (max-width: 640px) {
-      header { padding: 12px 16px; }
-      main { padding: 16px; }
-      .stats-row { gap: 12px; }
-      .stat-box { min-width: 45%; }
+    @media (max-width: 1100px) {
+      .squads-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* Slide-over Drawer / Modal for Agent Details */
+    @media (max-width: 700px) {
+      .squads-grid { grid-template-columns: 1fr; }
+    }
+
+    .squad-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .squad-box.highlight-squad {
+      border-color: #86efac;
+      background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 30%);
+    }
+
+    .squad-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .squad-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--accent);
+    }
+
+    .squad-box.highlight-squad .squad-title {
+      color: var(--accent-emerald);
+    }
+
+    .squad-status {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    .squad-nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .squad-node {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fafafa;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .squad-node:hover {
+      background: #ffffff;
+      border-color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    .squad-node.approved {
+      background: #ffffff;
+      border-color: #a7f3d0;
+    }
+
+    .sn-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sn-id {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #f1f5f9;
+      color: var(--text-2);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .squad-node.approved .sn-id {
+      background: var(--accent-emerald-bg);
+      color: var(--accent-emerald);
+    }
+
+    .sn-info h5 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .sn-info p {
+      font-size: 11px;
+      color: var(--text-2);
+    }
+
+    /* Slide Drawer / Modal */
     .drawer-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.4);
+      background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(4px);
-      z-index: 50;
+      z-index: 100;
       display: none;
       align-items: center;
       justify-content: flex-end;
     }
 
-    .drawer-overlay.active {
-      display: flex;
-    }
+    .drawer-overlay.active { display: flex; }
 
-    .drawer-panel {
-      background: #ffffff;
+    .drawer-content {
+      background: var(--surface);
       width: 100%;
       max-width: 520px;
       height: 100vh;
       overflow-y: auto;
-      padding: 32px 24px;
-      box-shadow: var(--shadow-xl);
+      padding: 36px 28px;
+      box-shadow: -4px 0 24px rgba(0,0,0,.15);
       display: flex;
       flex-direction: column;
       gap: 24px;
-      animation: slideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: slideDrawer 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    @keyframes slideIn {
+    @keyframes slideDrawer {
       from { transform: translateX(100%); }
       to { transform: translateX(0); }
     }
 
-    .drawer-top {
+    .drawer-head {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border-light);
-      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
     }
 
     .drawer-close {
@@ -460,519 +573,549 @@
       border: none;
       width: 32px;
       height: 32px;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
+      border-radius: 8px;
       font-weight: 700;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: var(--text-2);
+      cursor: pointer;
     }
 
-    .drawer-close:hover {
-      background: #e2e8f0;
-    }
+    .drawer-close:hover { background: #e2e8f0; }
 
-    .drawer-agent-card {
+    .d-agent-header {
       display: flex;
       gap: 16px;
       align-items: center;
     }
 
-    .drawer-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--radius-md);
-      background: var(--accent-emerald-light);
+    .d-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--accent-emerald-bg);
       color: var(--accent-emerald);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .drawer-agent-info h2 {
+    .d-titles h3 {
       font-size: 18px;
       font-weight: 700;
-      color: var(--text-primary);
     }
 
-    .drawer-badges {
+    .d-tags {
       display: flex;
       gap: 6px;
       margin-top: 6px;
       flex-wrap: wrap;
     }
 
-    .drawer-badge {
+    .d-tag {
       font-size: 11px;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 600;
+      font-weight: 700;
       padding: 2px 8px;
       border-radius: 4px;
     }
 
-    .d-section h4 {
+    .d-block h4 {
       font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text-tertiary);
-      margin-bottom: 8px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-2);
+      margin-bottom: 8px;
     }
 
-    .d-section p, .d-section ul {
+    .d-block p, .d-block ul {
       font-size: 14px;
-      color: var(--text-secondary);
+      color: var(--text-2);
       line-height: 1.6;
     }
 
-    .d-section ul {
-      padding-left: 18px;
-    }
+    .d-block p strong { color: var(--text); }
+    .d-block ul { padding-left: 20px; }
+    .d-block li { margin-bottom: 4px; }
 
-    .file-pill {
+    .file-tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       background: #f8fafc;
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--border);
       padding: 6px 12px;
-      border-radius: var(--radius-sm);
+      border-radius: 6px;
       font-size: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text-secondary);
+      font-family: -apple-system, sans-serif;
+      color: var(--text-2);
       margin: 4px 4px 4px 0;
     }
 
-    .file-pill.done {
-      background: var(--accent-emerald-light);
+    .file-tag.done {
+      background: var(--accent-emerald-bg);
       border-color: #a7f3d0;
       color: var(--accent-emerald);
       font-weight: 600;
     }
 
-    /* List View (Table Mode) */
-    .table-container {
-      background: #ffffff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-
-    th {
-      background: #f8fafc;
-      padding: 12px 16px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text-tertiary);
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    td {
-      padding: 14px 16px;
+    footer {
+      padding: 32px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--text-2);
       font-size: 13px;
-      border-bottom: 1px solid var(--border-light);
-      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
     }
 
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    tr:hover td {
-      background: #f8fafc;
-      cursor: pointer;
-    }
+    footer .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   </style>
 </head>
 <body>
 
-  <!-- Top Executive Header -->
-  <header>
-    <div class="header-wrap">
-      <div class="brand-group">
-        <div class="brand-badge">V</div>
-        <div class="brand-title">
-          <h1>Vieira Digital</h1>
-          <p><span class="live-dot"></span> v.os · Virtual Headquarters</p>
-        </div>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat-box">
-          <span class="stat-label">Núcleo Comercial</span>
-          <span class="stat-value highlight">100% Concluído (6/6)</span>
-          <div class="progress-bar-container">
-            <div class="progress-bar-fill" style="width: 100%;"></div>
-          </div>
-        </div>
-
-        <div class="stat-box">
-          <span class="stat-label">Total da Empresa</span>
-          <span class="stat-value">6 / 35 Cadeiras</span>
-          <div class="progress-bar-container">
-            <div class="progress-bar-fill" style="width: 17%;"></div>
-          </div>
-        </div>
-
-        <div class="stat-box">
-          <span class="stat-label">Meta Marco 1</span>
-          <span class="stat-value">R$ 50k / mês líquido</span>
-        </div>
-      </div>
-
-      <div class="mode-switch">
-        <button class="mode-btn active" onclick="switchView('spatial')">Virtual Office</button>
-        <button class="mode-btn" onclick="switchView('table')">Lista Geral</button>
-      </div>
+  <!-- Gate de Senha -->
+  <div id="authGate">
+    <div class="auth-card">
+      <div class="auth-logo">V</div>
+      <h2 class="auth-title">Vieira Digital</h2>
+      <p class="auth-sub">v.os · Acesso ao Organograma Executivo</p>
+      
+      <input type="password" id="passInput" class="auth-input" placeholder="Digite a senha de acesso" onkeydown="handleKey(event)" autofocus>
+      <button class="auth-btn" onclick="checkAuth()">Entrar no Sistema</button>
+      <p id="authError" class="auth-err">Senha incorreta. Tente novamente.</p>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <!-- Spatial View (Gather Clean Layout) -->
-    <div class="floorplan" id="spatialView">
-
-      <!-- Executive Office (CEO) -->
-      <div class="zone z-ceo">
-        <div class="zone-head">
-          <div class="zone-title">
-            <h3>Executive Command Suite</h3>
+  <!-- Dashboard App -->
+  <div id="dashboardApp">
+    <header class="top-bar">
+      <div class="top-container">
+        <div class="brand-area">
+          <div class="brand-icon">V</div>
+          <div>
+            <div class="brand-name">Vieira Digital</div>
+            <div class="brand-tag">v.os · AI Company Organogram</div>
           </div>
-          <span class="zone-tag tag-purple">Nível C4 · Decisão Humana</span>
         </div>
-        <div class="desks-grid">
-          <div class="desk desk-ceo active-agent" onclick="showAgent('00-ceo')">
-            <div class="desk-avatar">VV</div>
-            <div class="desk-name">Vitor</div>
-            <div class="desk-role">Founder / CEO</div>
-            <span class="desk-badge">HUMAN / C4</span>
+
+        <div class="kpi-strip">
+          <div class="kpi-col">
+            <span class="kpi-lbl">Discovery</span>
+            <span class="kpi-txt green">100% Concluído (10/10)</span>
           </div>
-          <div class="desk backlog-agent" onclick="showAgent('01-cos')">
-            <div class="desk-avatar">01</div>
-            <div class="desk-name">Chief of Staff</div>
-            <div class="desk-role">Coordenação Executiva</div>
-            <span class="desk-badge">BACKLOG</span>
+          <div class="kpi-col">
+            <span class="kpi-lbl">Núcleo Comercial</span>
+            <span class="kpi-txt green">100% Aprovado (6/6)</span>
           </div>
-          <div class="desk backlog-agent" onclick="showAgent('32-ea')">
-            <div class="desk-avatar">32</div>
-            <div class="desk-name">Exec Assistant</div>
-            <div class="desk-role">Suporte Executivo</div>
-            <span class="desk-badge">BACKLOG</span>
+          <div class="kpi-col">
+            <span class="kpi-lbl">Meta Marco 1</span>
+            <span class="kpi-txt blue">R$ 50k / mês líquido</span>
+          </div>
+          <div class="kpi-col">
+            <span class="kpi-lbl">Reserva Meta</span>
+            <span class="kpi-txt">R$ 300k (6 meses)</span>
           </div>
         </div>
       </div>
+    </header>
 
-      <!-- Commercial & Revenue Department (Active Hub) -->
-      <div class="zone z-commercial active-zone">
-        <div class="zone-head">
-          <div class="zone-title">
-            <h3>Departamento Comercial & Revenue (Ciclo 1)</h3>
-          </div>
-          <span class="zone-tag tag-green">6 / 6 APROVADOS (100% OPERACIONAL)</span>
+    <div class="main-wrap">
+
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div>
+          <div class="eyebrow">ESTRUTURA ORGANIZACIONAL DA EMPRESA</div>
+          <h2>35 Cadeiras · 100% Operada por IA</h2>
+          <p>O Núcleo de Receita & Vendas (Ciclo 1) está 100% construído e aprovado. Todos os agentes possuem governança de confiança (C1 a C4) e acesso a dados estruturados.</p>
         </div>
-        <div class="desks-grid">
-          <div class="desk active-agent" onclick="showAgent('07-icp')">
-            <div class="desk-avatar">07</div>
-            <div class="desk-name">ICP Agent</div>
-            <div class="desk-role">Filtro & Qualificação</div>
-            <span class="desk-badge">APPROVED</span>
-          </div>
-          <div class="desk active-agent" onclick="showAgent('08-prospecting')">
-            <div class="desk-avatar">08</div>
-            <div class="desk-name">Prospecting</div>
-            <div class="desk-role">Sniper & Referidos</div>
-            <span class="desk-badge">APPROVED</span>
-          </div>
-          <div class="desk active-agent" onclick="showAgent('09-sales')">
-            <div class="desk-avatar">09</div>
-            <div class="desk-name">Sales Agent</div>
-            <div class="desk-role">Entrevista 6 Blocos</div>
-            <span class="desk-badge">APPROVED</span>
-          </div>
-          <div class="desk active-agent" onclick="showAgent('10-proposal')">
-            <div class="desk-avatar">10</div>
-            <div class="desk-name">Proposal Agent</div>
-            <div class="desk-role">Contratos & Escopo</div>
-            <span class="desk-badge">APPROVED</span>
-          </div>
-          <div class="desk active-agent" onclick="showAgent('11-crm')">
-            <div class="desk-avatar">11</div>
-            <div class="desk-name">CRM Agent</div>
-            <div class="desk-role">Timeline & Follow-up</div>
-            <span class="desk-badge">APPROVED</span>
-          </div>
-          <div class="desk active-agent" onclick="showAgent('06-revenue')">
-            <div class="desk-avatar">06</div>
-            <div class="desk-name">Revenue Agent</div>
-            <div class="desk-role">Forecast & R$ 50k</div>
-            <span class="desk-badge">APPROVED</span>
-          </div>
+        <div class="hero-stat">
+          <div class="num">6 / 35</div>
+          <div class="sub">Cadeiras Ativas</div>
         </div>
       </div>
 
-      <!-- Operations & Implementation -->
-      <div class="zone z-ops">
-        <div class="zone-head">
-          <div class="zone-title">
-            <h3>Operações & Implementação</h3>
-          </div>
-          <span class="zone-tag tag-gray">Ciclo 2</span>
-        </div>
-        <div class="desks-grid">
-          <div class="desk backlog-agent" onclick="showAgent('34-ops')">
-            <div class="desk-avatar">34</div>
-            <div class="desk-name">Operations</div>
-            <div class="desk-role">Coordenação</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('23-implementation')">
-            <div class="desk-avatar">23</div>
-            <div class="desk-name">Implementation</div>
-            <div class="desk-role">Setup & Automação</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('24-process')">
-            <div class="desk-avatar">24</div>
-            <div class="desk-name">Process</div>
-            <div class="desk-role">Playbooks</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('25-systems')">
-            <div class="desk-avatar">25</div>
-            <div class="desk-name">Systems</div>
-            <div class="desk-role">Ferramentas</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('26-automation')">
-            <div class="desk-avatar">26</div>
-            <div class="desk-name">Automation</div>
-            <div class="desk-role">Scripts</div>
-            <span class="desk-badge">BACKLOG</span>
+      <!-- Organogram Tree -->
+      <div class="organogram-container">
+        
+        <!-- Nível 0: CEO -->
+        <div class="tree-level">
+          <div class="node-card node-ceo approved" onclick="openDrawer('00-ceo')">
+            <div class="node-icon">VV</div>
+            <div class="node-text">
+              <h4>Vitor (CEO / Founder)</h4>
+              <p>Autoridade Máxima & Direção Estratégica</p>
+              <span class="node-badge badge-app">HUMAN / C4 SUPREMO</span>
+            </div>
           </div>
         </div>
+
+        <div class="v-line"></div>
+
+        <!-- Nível 1: Chief of Staff & Coordenação -->
+        <div class="tree-level">
+          <div class="node-card node-cos" onclick="openDrawer('01-cos')">
+            <div class="node-icon">01</div>
+            <div class="node-text">
+              <h4>Chief of Staff Agent</h4>
+              <p>Braço Direito do CEO & Coordenação Geral</p>
+              <span class="node-badge badge-back">BACKLOG · CICLO 1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="v-line"></div>
+
+        <!-- Nível 2: Squads / Departamentos -->
+        <div class="squads-grid">
+
+          <!-- Squad 1: Revenue & Vendas (ATIVO) -->
+          <div class="squad-box highlight-squad">
+            <div class="squad-header">
+              <span class="squad-title">Revenue & Vendas (Ciclo 1)</span>
+              <span class="squad-status badge-app">6 / 6 ATIVOS</span>
+            </div>
+            <div class="squad-nodes">
+              <div class="squad-node approved" onclick="openDrawer('07-icp')">
+                <div class="sn-left">
+                  <div class="sn-id">07</div>
+                  <div class="sn-info">
+                    <h5>ICP Agent</h5>
+                    <p>Qualificação & Sinais</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-app">APPROVED</span>
+              </div>
+              <div class="squad-node approved" onclick="openDrawer('08-prospecting')">
+                <div class="sn-left">
+                  <div class="sn-id">08</div>
+                  <div class="sn-info">
+                    <h5>Prospecting Agent</h5>
+                    <p>Sniper & Referidos</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-app">APPROVED</span>
+              </div>
+              <div class="squad-node approved" onclick="openDrawer('09-sales')">
+                <div class="sn-left">
+                  <div class="sn-id">09</div>
+                  <div class="sn-info">
+                    <h5>Sales Agent</h5>
+                    <p>Entrevista 6 Blocos</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-app">APPROVED</span>
+              </div>
+              <div class="squad-node approved" onclick="openDrawer('10-proposal')">
+                <div class="sn-left">
+                  <div class="sn-id">10</div>
+                  <div class="sn-info">
+                    <h5>Proposal Agent</h5>
+                    <p>Contratos & Trava Pix</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-app">APPROVED</span>
+              </div>
+              <div class="squad-node approved" onclick="openDrawer('11-crm')">
+                <div class="sn-left">
+                  <div class="sn-id">11</div>
+                  <div class="sn-info">
+                    <h5>CRM Agent</h5>
+                    <p>Timeline & Follow-ups</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-app">APPROVED</span>
+              </div>
+              <div class="squad-node approved" onclick="openDrawer('06-revenue')">
+                <div class="sn-left">
+                  <div class="sn-id">06</div>
+                  <div class="sn-info">
+                    <h5>Revenue Agent</h5>
+                    <p>Forecast & R$ 50k</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-app">APPROVED</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Squad 2: Operações & Implementação -->
+          <div class="squad-box">
+            <div class="squad-header">
+              <span class="squad-title">Operações & Entrega</span>
+              <span class="squad-status badge-back">CICLO 2</span>
+            </div>
+            <div class="squad-nodes">
+              <div class="squad-node" onclick="openDrawer('34-ops')">
+                <div class="sn-left">
+                  <div class="sn-id">34</div>
+                  <div class="sn-info">
+                    <h5>Operations Agent</h5>
+                    <p>Coordenação Geral</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('23-implementation')">
+                <div class="sn-left">
+                  <div class="sn-id">23</div>
+                  <div class="sn-info">
+                    <h5>Implementation Agent</h5>
+                    <p>Setup ClickUp & Google</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('24-process')">
+                <div class="sn-left">
+                  <div class="sn-id">24</div>
+                  <div class="sn-info">
+                    <h5>Process Agent</h5>
+                    <p>Manuais & Playbooks</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('25-systems')">
+                <div class="sn-left">
+                  <div class="sn-id">25</div>
+                  <div class="sn-info">
+                    <h5>Systems Agent</h5>
+                    <p>Gestão de Ferramentas</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('26-automation')">
+                <div class="sn-left">
+                  <div class="sn-id">26</div>
+                  <div class="sn-info">
+                    <h5>Automation Agent</h5>
+                    <p>Scripts & Automações</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Squad 3: PMO & Projetos -->
+          <div class="squad-box">
+            <div class="squad-header">
+              <span class="squad-title">PMO & Projetos</span>
+              <span class="squad-status badge-back">CICLO 2</span>
+            </div>
+            <div class="squad-nodes">
+              <div class="squad-node" onclick="openDrawer('16-pmo')">
+                <div class="sn-left">
+                  <div class="sn-id">16</div>
+                  <div class="sn-info">
+                    <h5>PMO Agent</h5>
+                    <p>Portfólio de Contas</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('17-pm')">
+                <div class="sn-left">
+                  <div class="sn-id">17</div>
+                  <div class="sn-info">
+                    <h5>Project Manager Agent</h5>
+                    <p>Gestão de Projetos</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('18-planning')">
+                <div class="sn-left">
+                  <div class="sn-id">18</div>
+                  <div class="sn-info">
+                    <h5>Project Planning Agent</h5>
+                    <p>Cronogramas & Etapas</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('19-meeting')">
+                <div class="sn-left">
+                  <div class="sn-id">19</div>
+                  <div class="sn-info">
+                    <h5>Meeting Agent</h5>
+                    <p>Atas & Pautas de Reunião</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('20-risk')">
+                <div class="sn-left">
+                  <div class="sn-id">20</div>
+                  <div class="sn-info">
+                    <h5>Risk Agent</h5>
+                    <p>Matriz de Risco</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Squad 4: Marketing & Growth -->
+          <div class="squad-box">
+            <div class="squad-header">
+              <span class="squad-title">Marketing & Growth</span>
+              <span class="squad-status badge-back">CICLO 1</span>
+            </div>
+            <div class="squad-nodes">
+              <div class="squad-node" onclick="openDrawer('12-marketing')">
+                <div class="sn-left">
+                  <div class="sn-id">12</div>
+                  <div class="sn-info">
+                    <h5>Marketing Agent</h5>
+                    <p>Estratégia & Branding</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('13-content')">
+                <div class="sn-left">
+                  <div class="sn-id">13</div>
+                  <div class="sn-info">
+                    <h5>Content Agent</h5>
+                    <p>Produção de Conteúdo</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('14-copy')">
+                <div class="sn-left">
+                  <div class="sn-id">14</div>
+                  <div class="sn-info">
+                    <h5>Copy Agent</h5>
+                    <p>Copywriting Estratégico</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('15-growth')">
+                <div class="sn-left">
+                  <div class="sn-id">15</div>
+                  <div class="sn-info">
+                    <h5>Growth Agent</h5>
+                    <p>Aquisição Orgânica</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Squad 5: Customer Success -->
+          <div class="squad-box">
+            <div class="squad-header">
+              <span class="squad-title">Customer Success</span>
+              <span class="squad-status badge-back">CICLO 3</span>
+            </div>
+            <div class="squad-nodes">
+              <div class="squad-node" onclick="openDrawer('21-cs')">
+                <div class="sn-left">
+                  <div class="sn-id">21</div>
+                  <div class="sn-info">
+                    <h5>CS Agent</h5>
+                    <p>Adesão & Prevenção Churn</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('22-account')">
+                <div class="sn-left">
+                  <div class="sn-id">22</div>
+                  <div class="sn-info">
+                    <h5>Account Management</h5>
+                    <p>Recorrência & Hub</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Squad 6: Financeiro & IA -->
+          <div class="squad-box">
+            <div class="squad-header">
+              <span class="squad-title">Financeiro & IA</span>
+              <span class="squad-status badge-back">NÍVEL 3 RESTRITO</span>
+            </div>
+            <div class="squad-nodes">
+              <div class="squad-node" onclick="openDrawer('30-finance')">
+                <div class="sn-left">
+                  <div class="sn-id">30</div>
+                  <div class="sn-info">
+                    <h5>Finance Agent</h5>
+                    <p>Contabilizei & Caixa</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('33-legal')">
+                <div class="sn-left">
+                  <div class="sn-id">33</div>
+                  <div class="sn-info">
+                    <h5>Legal Agent</h5>
+                    <p>Compliance & NDA</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+              <div class="squad-node" onclick="openDrawer('27-ai')">
+                <div class="sn-left">
+                  <div class="sn-id">27</div>
+                  <div class="sn-info">
+                    <h5>AI Architect Agent</h5>
+                    <p>Arquitetura de LLMs</p>
+                  </div>
+                </div>
+                <span class="node-badge badge-back">BACKLOG</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- PMO & Projects -->
-      <div class="zone z-pmo">
-        <div class="zone-head">
-          <div class="zone-title">
-            <h3>PMO & Projetos</h3>
-          </div>
-          <span class="zone-tag tag-gray">Ciclo 2</span>
-        </div>
-        <div class="desks-grid">
-          <div class="desk backlog-agent" onclick="showAgent('16-pmo')">
-            <div class="desk-avatar">16</div>
-            <div class="desk-name">PMO</div>
-            <div class="desk-role">Portfólio</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('17-pm')">
-            <div class="desk-avatar">17</div>
-            <div class="desk-name">Project Manager</div>
-            <div class="desk-role">Projetos</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('18-planning')">
-            <div class="desk-avatar">18</div>
-            <div class="desk-name">Planning</div>
-            <div class="desk-role">Cronogramas</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('19-meeting')">
-            <div class="desk-avatar">19</div>
-            <div class="desk-name">Meeting</div>
-            <div class="desk-role">Atas & Pautas</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('20-risk')">
-            <div class="desk-avatar">20</div>
-            <div class="desk-name">Risk</div>
-            <div class="desk-role">Riscos</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Marketing & Growth -->
-      <div class="zone z-mkt">
-        <div class="zone-head">
-          <div class="zone-title">
-            <h3>Marketing & Growth</h3>
-          </div>
-          <span class="zone-tag tag-gray">Ciclo 1</span>
-        </div>
-        <div class="desks-grid">
-          <div class="desk backlog-agent" onclick="showAgent('12-marketing')">
-            <div class="desk-avatar">12</div>
-            <div class="desk-name">Marketing</div>
-            <div class="desk-role">Estratégia</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('13-content')">
-            <div class="desk-avatar">13</div>
-            <div class="desk-name">Content</div>
-            <div class="desk-role">Produção</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('14-copy')">
-            <div class="desk-avatar">14</div>
-            <div class="desk-name">Copy</div>
-            <div class="desk-role">Copywriting</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('15-growth')">
-            <div class="desk-avatar">15</div>
-            <div class="desk-name">Growth</div>
-            <div class="desk-role">Aquisição</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Customer Success -->
-      <div class="zone z-cs">
-        <div class="zone-head">
-          <div class="zone-title">
-            <h3>Customer Success</h3>
-          </div>
-          <span class="zone-tag tag-gray">Ciclo 3</span>
-        </div>
-        <div class="desks-grid">
-          <div class="desk backlog-agent" onclick="showAgent('21-cs')">
-            <div class="desk-avatar">21</div>
-            <div class="desk-name">CS Agent</div>
-            <div class="desk-role">Retenção & Adesão</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('22-account')">
-            <div class="desk-avatar">22</div>
-            <div class="desk-name">Account Mgmt</div>
-            <div class="desk-role">Expansão & Hub</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- AI & Knowledge -->
-      <div class="zone z-ai">
-        <div class="zone-head">
-          <div class="zone-title">
-            <h3>IA & Conhecimento</h3>
-          </div>
-          <span class="zone-tag tag-gray">Ciclo 4</span>
-        </div>
-        <div class="desks-grid">
-          <div class="desk backlog-agent" onclick="showAgent('27-ai')">
-            <div class="desk-avatar">27</div>
-            <div class="desk-name">AI Architect</div>
-            <div class="desk-role">Arquitetura</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('28-knowledge')">
-            <div class="desk-avatar">28</div>
-            <div class="desk-name">Knowledge</div>
-            <div class="desk-role">Transcrições</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('29-data')">
-            <div class="desk-avatar">29</div>
-            <div class="desk-name">Data Agent</div>
-            <div class="desk-role">Analytics</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finance & Legal -->
-      <div class="zone z-fin">
-        <div class="zone-head">
-          <div class="zone-title">
-            <h3>Financeiro & Jurídico</h3>
-          </div>
-          <span class="zone-tag tag-rose">Nível 3 · Restrito</span>
-        </div>
-        <div class="desks-grid">
-          <div class="desk backlog-agent" onclick="showAgent('30-finance')">
-            <div class="desk-avatar">30</div>
-            <div class="desk-name">Finance</div>
-            <div class="desk-role">Caixa & Dívidas</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('33-legal')">
-            <div class="desk-avatar">33</div>
-            <div class="desk-name">Legal</div>
-            <div class="desk-role">Compliance & NDA</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-          <div class="desk backlog-agent" onclick="showAgent('31-qa')">
-            <div class="desk-avatar">31</div>
-            <div class="desk-name">Quality (QA)</div>
-            <div class="desk-role">Auditoria Geral</div>
-            <span class="desk-badge">BACKLOG</span>
-          </div>
-        </div>
-      </div>
-
+      <footer>
+        <span class="dot"></span> Vieira Digital · Organograma do Sistema v.os (Versão 1.0.0)
+      </footer>
     </div>
+  </div>
 
-    <!-- Table View -->
-    <div class="table-container" id="tableView" style="display: none;">
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome do Agente</th>
-            <th>Área</th>
-            <th>Status</th>
-            <th>Confiança</th>
-            <th>Acesso Dados</th>
-            <th>Ciclo</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-          <!-- Populated via JS -->
-        </tbody>
-      </table>
-    </div>
-  </main>
-
-  <!-- Detail Drawer -->
+  <!-- Detail Drawer Modal -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer(event)">
-    <div class="drawer-panel" onclick="event.stopPropagation()">
-      <div class="drawer-top">
-        <div class="drawer-agent-card">
-          <div class="drawer-avatar" id="dAvatar">07</div>
-          <div class="drawer-agent-info">
-            <h2 id="dName">ICP Agent</h2>
-            <div class="drawer-badges" id="dBadges"></div>
+    <div class="drawer-content" onclick="event.stopPropagation()">
+      <div class="drawer-head">
+        <div class="d-agent-header">
+          <div class="d-avatar" id="dAvatar">07</div>
+          <div class="d-titles">
+            <h3 id="dName">ICP Agent</h3>
+            <div class="d-tags" id="dTags"></div>
           </div>
         </div>
         <button class="drawer-close" onclick="closeDrawer(event)">✕</button>
       </div>
 
-      <div class="d-section">
+      <div class="d-block">
         <h4>Missão do Agente</h4>
         <p id="dMission"></p>
       </div>
 
-      <div class="d-section">
+      <div class="d-block">
         <h4>Responsabilidades & Entregáveis</h4>
         <ul id="dResponsibilities"></ul>
       </div>
 
-      <div class="d-section">
+      <div class="d-block">
         <h4>Arquivos de Governança (Ciclo de 9 Fases)</h4>
         <div id="dFiles"></div>
       </div>
@@ -980,35 +1123,76 @@
   </div>
 
   <script>
+    const AUTH_PASS = "Vieir@97";
+
+    function checkAuth() {
+      const input = document.getElementById("passInput").value;
+      if (input === AUTH_PASS) {
+        sessionStorage.setItem("vos_auth", "true");
+        unlockApp();
+      } else {
+        document.getElementById("authError").style.display = "block";
+      }
+    }
+
+    function handleKey(e) {
+      if (e.key === "Enter") checkAuth();
+    }
+
+    function unlockApp() {
+      document.getElementById("authGate").style.display = "none";
+      document.getElementById("dashboardApp").style.display = "flex";
+    }
+
+    // Auto-login se já autenticado na sessão
+    if (sessionStorage.getItem("vos_auth") === "true") {
+      unlockApp();
+    }
+
     const agentsData = {
       '00-ceo': {
         id: '00',
         name: 'Vitor (CEO / Founder)',
-        area: 'Governança Suprema',
         avatar: 'VV',
-        status: 'HUMAN / C4',
-        statusClass: 'tag-purple',
+        status: 'HUMAN / C4 SUPREMO',
+        statusBg: 'var(--accent-emerald-bg)',
+        statusColor: 'var(--accent-emerald)',
         trust: 'C4 (Decisão Suprema)',
         access: 'Nível 1, 2 e 3 (Irrestrito)',
-        cycle: 'Governança',
-        mission: 'Fundador, estrategista e autoridade máxima da Vieira Digital.',
+        mission: 'Fundador, estrategista e tomador de decisões finais da Vieira Digital.',
         responsibilities: [
-          'Direção estratégica e validação de contratos.',
+          'Direção estratégica, aprovações de contratos e governança.',
           'Supervisão executiva dos 34 agentes de IA.',
           'Fechamento e relacionamento com clientes estratégicos.'
         ],
         files: ['MASTER-README.md', 'COMPANY-MASTER-BRIEF.md', 'COMPANY-STRATEGY.md', 'COMPANY-LANGUAGE.md']
       },
+      '01-cos': {
+        id: '01',
+        name: 'Chief of Staff Agent',
+        avatar: '01',
+        status: 'BACKLOG',
+        statusBg: '#f1f5f9',
+        statusColor: 'var(--text-2)',
+        trust: 'C1 (Supervisionado)',
+        access: 'Nível 1, 2 e 3',
+        mission: 'Orquestrador executivo central e braço direito do CEO para coordenação de todos os agentes.',
+        responsibilities: [
+          'Distribuição de tarefas e controle de dependências entre squads.',
+          'Consolidação de relatórios e briefings para o CEO.',
+          'Mediação de decisões de escalonamento LOW e MEDIUM.'
+        ],
+        files: ['01-discovery/MISSION.md (Pendente)', '03-specification/SPECIFICATION.md (Pendente)']
+      },
       '07-icp': {
         id: '07',
         name: 'ICP Agent',
-        area: 'Revenue & Vendas',
         avatar: '07',
         status: 'APPROVED',
-        statusClass: 'tag-green',
+        statusBg: 'var(--accent-emerald-bg)',
+        statusColor: 'var(--accent-emerald)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público / Comercial)',
-        cycle: 'Ciclo 1',
         mission: 'Definir, manter e auditar os critérios cirúrgicos de qualificação de clientes ideais.',
         responsibilities: [
           'Filtragem por nichos: Infoprodutos/Lançadores e Agências de Performance.',
@@ -1020,13 +1204,12 @@
       '08-prospecting': {
         id: '08',
         name: 'Prospecting Agent',
-        area: 'Revenue & Vendas',
         avatar: '08',
         status: 'APPROVED',
-        statusClass: 'tag-green',
+        statusBg: 'var(--accent-emerald-bg)',
+        statusColor: 'var(--accent-emerald)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público / Comercial)',
-        cycle: 'Ciclo 1',
         mission: 'Mapear e rastrear decisores e leads qualificados 7 dias por semana.',
         responsibilities: [
           'Gestão do Loop de Leads Infinitos (5-10 contatos indicados a cada fechamento).',
@@ -1038,13 +1221,12 @@
       '09-sales': {
         id: '09',
         name: 'Sales Agent',
-        area: 'Revenue & Vendas',
         avatar: '09',
         status: 'APPROVED',
-        statusClass: 'tag-green',
+        statusBg: 'var(--accent-emerald-bg)',
+        statusColor: 'var(--accent-emerald)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
-        cycle: 'Ciclo 1',
         mission: 'Conduzir a negociação e fechamento de contratos de R$ 10.000 a R$ 15.000.',
         responsibilities: [
           'Nutrição rápida e diagnóstico preliminar no WhatsApp.',
@@ -1057,13 +1239,12 @@
       '10-proposal': {
         id: '10',
         name: 'Proposal Agent',
-        area: 'Revenue & Vendas',
         avatar: '10',
         status: 'APPROVED',
-        statusClass: 'tag-green',
+        statusBg: 'var(--accent-emerald-bg)',
+        statusColor: 'var(--accent-emerald)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
-        cycle: 'Ciclo 1',
         mission: 'Gerar propostas comerciais executivas e minutas de contrato blindadas.',
         responsibilities: [
           'Prazos de 30 a 45 dias corridos e 15 a 30 dias de suporte pós-treinamento.',
@@ -1076,13 +1257,12 @@
       '11-crm': {
         id: '11',
         name: 'CRM Agent',
-        area: 'Revenue & Vendas',
         avatar: '11',
         status: 'APPROVED',
-        statusClass: 'tag-green',
+        statusBg: 'var(--accent-emerald-bg)',
+        statusColor: 'var(--accent-emerald)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
-        cycle: 'Ciclo 1',
         mission: 'Gerenciar o pipeline comercial e garantir a Timeline Eterna de cada cliente.',
         responsibilities: [
           'Arquitetura 100% proprietária local (JSON/Markdown) sem assinaturas pagas.',
@@ -1095,13 +1275,12 @@
       '06-revenue': {
         id: '06',
         name: 'Revenue Agent',
-        area: 'Revenue & Vendas',
         avatar: '06',
         status: 'APPROVED',
-        statusClass: 'tag-green',
+        statusBg: 'var(--accent-emerald-bg)',
+        statusColor: 'var(--accent-emerald)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1, 2 e 3 (Restrito / Financeiro)',
-        cycle: 'Ciclo 1',
         mission: 'Controlar o marco de R$ 50k líquido sustentado 100% por recorrência e o colchão de R$ 300k.',
         responsibilities: [
           'Modelo em 2 tempos: tração rápida com implementações e consolidação na recorrência.',
@@ -1112,67 +1291,36 @@
       }
     };
 
-    function switchView(mode) {
-      document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-      if (mode === 'spatial') {
-        document.getElementById('spatialView').style.display = 'grid';
-        document.getElementById('tableView').style.display = 'none';
-        document.querySelectorAll('.mode-btn')[0].classList.add('active');
-      } else {
-        document.getElementById('spatialView').style.display = 'none';
-        document.getElementById('tableView').style.display = 'block';
-        document.querySelectorAll('.mode-btn')[1].classList.add('active');
-        renderTable();
-      }
-    }
-
-    function renderTable() {
-      const tbody = document.getElementById('tableBody');
-      tbody.innerHTML = Object.keys(agentsData).map(k => {
-        const a = agentsData[k];
-        return `
-          <tr onclick="showAgent('${k}')">
-            <td style="font-family: 'JetBrains Mono'; font-weight: 700;">${a.id}</td>
-            <td style="font-weight: 600; color: var(--text-primary);">${a.name}</td>
-            <td>${a.area}</td>
-            <td><span class="zone-tag ${a.statusClass}">${a.status}</span></td>
-            <td>${a.trust}</td>
-            <td>${a.access}</td>
-            <td>${a.cycle}</td>
-          </tr>
-        `;
-      }).join('');
-    }
-
-    function showAgent(key) {
-      const agent = agentsData[key] || {
+    function openDrawer(key) {
+      const a = agentsData[key] || {
         id: key.split('-')[0],
         name: 'Agente em Backlog',
         avatar: key.split('-')[0],
         status: 'BACKLOG',
-        statusClass: 'tag-gray',
+        statusBg: '#f1f5f9',
+        statusColor: 'var(--text-2)',
         trust: 'C1 (Planejado)',
         access: 'Nível Operacional',
-        mission: 'Este agente faz parte da arquitetura do v.os e entrará no ciclo de 9 fases conforme o roadmap.',
-        responsibilities: ['Aguardando início da onda de construção.'],
+        mission: 'Este agente faz parte da arquitetura organizacional do v.os e será construído no seu respectivo ciclo.',
+        responsibilities: ['Aguardando início do ciclo de 9 fases.'],
         files: ['01-MISSION.md (Pendente)', '03-SPECIFICATION.md (Pendente)']
       };
 
-      document.getElementById('dAvatar').innerText = agent.avatar;
-      document.getElementById('dName').innerText = agent.name;
+      document.getElementById('dAvatar').innerText = a.avatar;
+      document.getElementById('dName').innerText = a.name;
       
-      document.getElementById('dBadges').innerHTML = `
-        <span class="drawer-badge ${agent.statusClass}">${agent.status}</span>
-        <span class="drawer-badge tag-gray">${agent.trust}</span>
-        <span class="drawer-badge tag-gray">${agent.access}</span>
+      document.getElementById('dTags').innerHTML = `
+        <span class="d-tag" style="background: ${a.statusBg}; color: ${a.statusColor};">${a.status}</span>
+        <span class="d-tag" style="background: #f1f5f9; color: var(--text-2);">${a.trust}</span>
+        <span class="d-tag" style="background: #f1f5f9; color: var(--text-2);">${a.access}</span>
       `;
 
-      document.getElementById('dMission').innerText = agent.mission;
-      document.getElementById('dResponsibilities').innerHTML = agent.responsibilities.map(r => `<li>${r}</li>`).join('');
+      document.getElementById('dMission').innerText = a.mission;
+      document.getElementById('dResponsibilities').innerHTML = a.responsibilities.map(r => `<li>${r}</li>`).join('');
 
-      document.getElementById('dFiles').innerHTML = agent.files.map(f => {
-        const isDone = agent.status === 'APPROVED' || agent.status === 'HUMAN / C4';
-        return `<div class="file-pill ${isDone ? 'done' : ''}">${isDone ? '✓ ' : '⬜ '}${f}</div>`;
+      document.getElementById('dFiles').innerHTML = a.files.map(f => {
+        const isDone = a.status === 'APPROVED' || a.status === 'HUMAN / C4 SUPREMO';
+        return `<div class="file-tag ${isDone ? 'done' : ''}">${isDone ? '✓ ' : '⬜ '}${f}</div>`;
       }).join('');
 
       document.getElementById('drawerOverlay').classList.add('active');
