@@ -858,7 +858,7 @@
                 </div>
                 <span class="node-badge badge-app">APPROVED</span>
               </div>
-              <div class="squad-node" onclick="openDrawer('05-offer')">
+              <div class="squad-node approved" onclick="openDrawer('05-offer')">
                 <div class="sn-left">
                   <div class="sn-id">05</div>
                   <div class="sn-info">
@@ -866,7 +866,7 @@
                     <p>Empacotamento & Preços</p>
                   </div>
                 </div>
-                <span class="node-badge badge-back">BACKLOG</span>
+                <span class="node-badge badge-app">VALIDATION</span>
               </div>
             </div>
           </div>
@@ -1341,18 +1341,19 @@
         id: '05',
         name: 'Offer Agent',
         avatar: '05',
-        status: 'BACKLOG',
-        statusBg: '#f1f5f9',
-        statusColor: 'var(--text-2)',
+        status: 'VALIDATION',
+        statusBg: '#eff6ff',
+        statusColor: 'var(--accent)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
         mission: 'Transformar o catálogo de produtos em ofertas irresistíveis, empacotamento comercial e precificação estratégica.',
         responsibilities: [
-          'Desenho de propostas de valor e pacotes de serviços.',
-          'Precificação estratégica e ancoragem comercial.',
-          'Criação de esteiras de progressão de ticket por cliente.'
+          'Empacotamento das 6 ofertas oficiais (Core R$ 10k-15k, Governança Semestral R$ 6k, Tripwire R$ 397, Sprints IA, Assessor e Hub Severino).',
+          'Arquitetura de ancoragem contra o custo de gestor CLT (R$ 80k+/ano) e custo da inação da equipe.',
+          'Design de bônus de aceleração ao vivo (1 Sprint IA para Pix à vista e suporte de 30 dias na call).',
+          'Política estrita de zero descontos nominais e transição de upsell na Semana 4 da implementação.'
         ],
-        files: ['01-discovery/MISSION.md (Pendente)', '03-specification/SPECIFICATION.md (Pendente)']
+        files: ['01-discovery/MISSION.md', '02-questionnaire/QUESTIONNAIRE.md', '03-specification/SPECIFICATION.md', '04-prompt/SYSTEM-PROMPT.md', '05-workflows/WORKFLOWS.md', '06-tests/TEST-CASES.md']
       }
     };
 
