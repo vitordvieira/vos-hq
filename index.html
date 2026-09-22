@@ -736,8 +736,8 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">10 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 28% do Sistema Ativo</div>
+          <div class="kpi-value">11 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 31% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -860,8 +860,8 @@
             <div class="squad-head">
               <span class="squad-title">Marketing & Growth</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 50%;"></div></div>
-                <span class="progress-label">2/4</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
+                <span class="progress-label">3/4</span>
               </div>
             </div>
             <div class="agent-stack">
@@ -875,7 +875,7 @@
               </div>
               <div class="agent-card" onclick="openAgent('14-copy', this)">
                 <div class="agent-card-left"><div class="agent-num">14</div><span class="agent-label">Copy Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('15-growth', this)">
                 <div class="agent-card-left"><div class="agent-num">15</div><span class="agent-label">Growth Agent</span></div>
@@ -1381,13 +1381,26 @@
         num: '14',
         name: 'Copy Agent',
         area: 'Marketing & Growth',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 1)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
-        access: 'Nível 1 (Público)',
-        mission: 'Copywriting de resposta direta, scripts de conteúdo e criativos de alto impacto.',
-        responsibilities: ['Redação persuasiva para páginas e vídeos.', 'Desenvolvimento de narrativas e ganchos.'],
-        files: [{ name: 'project/05-agents/14-copy/01-discovery/MISSION.md', done: false }]
+        access: 'Nível 1 (Público / Comercial)',
+        mission: 'Líder de copywriting e supervisor de redação persuasiva para resposta direta, e-mails e criativos.',
+        responsibilities: [
+          'Supervisão do Sub-Agente 14.1 (Hooks magnéticos de 3s e roteiros de 30-50s para Reels/Shorts/TikTok).',
+          'Supervisão do Sub-Agente 14.2 (Copy da Newsletter "Ponto de Virada" com no mínimo 4 blocos e zero clichês).',
+          'Supervisão do Sub-Agente 14.3 (Redação de carrosséis sem limites artificiais de linhas, ads e posts no LinkedIn).',
+          'Princípio de Expansão Conceitual: enriquecer com pesquisa e referências curadas pelo fundador (zero ipsis litteris).'
+        ],
+        files: [
+          { name: 'project/05-agents/14-copy/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/14-copy/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/14-copy/02-questionnaire/ANSWERS.md', done: true },
+          { name: 'project/05-agents/14-copy/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/14-copy/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/14-copy/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/14-copy/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '15-growth': {
         num: '15',
