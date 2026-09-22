@@ -867,7 +867,7 @@
             <div class="agent-stack">
               <div class="agent-card" onclick="openAgent('12-marketing', this)">
                 <div class="agent-card-left"><div class="agent-num">12</div><span class="agent-label">Marketing Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot building"></span>
               </div>
               <div class="agent-card" onclick="openAgent('13-content', this)">
                 <div class="agent-card-left"><div class="agent-num">13</div><span class="agent-label">Content Agent</span></div>
@@ -1331,13 +1331,16 @@
         num: '12',
         name: 'Marketing Agent',
         area: 'Marketing & Growth',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 1)',
+        statusClass: 'building',
+        statusLabel: 'Em Construção (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público)',
         mission: 'Posicionamento institucional, autoridade da marca e estratégia de atração.',
         responsibilities: ['Estratégia de canais orgânicos e inbound.', 'Diretrizes de branding e posicionamento.'],
-        files: [{ name: 'project/05-agents/12-marketing/01-discovery/MISSION.md', done: false }]
+        files: [
+          { name: 'project/05-agents/12-marketing/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/12-marketing/02-questionnaire/QUESTIONNAIRE.md', done: true }
+        ]
       },
       '13-content': {
         num: '13',
