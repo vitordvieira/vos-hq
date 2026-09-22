@@ -736,8 +736,8 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">8 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 23% do Sistema Ativo</div>
+          <div class="kpi-value">9 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 26% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -860,18 +860,18 @@
             <div class="squad-head">
               <span class="squad-title">Marketing & Growth</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
-                <span class="progress-label">0/4</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 25%;"></div></div>
+                <span class="progress-label">1/4</span>
               </div>
             </div>
             <div class="agent-stack">
               <div class="agent-card" onclick="openAgent('12-marketing', this)">
                 <div class="agent-card-left"><div class="agent-num">12</div><span class="agent-label">Marketing Agent</span></div>
-                <span class="status-dot building"></span>
+                <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('13-content', this)">
                 <div class="agent-card-left"><div class="agent-num">13</div><span class="agent-label">Content Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot building"></span>
               </div>
               <div class="agent-card" onclick="openAgent('14-copy', this)">
                 <div class="agent-card-left"><div class="agent-num">14</div><span class="agent-label">Copy Agent</span></div>
@@ -1331,8 +1331,8 @@
         num: '12',
         name: 'Marketing Agent',
         area: 'Marketing & Growth',
-        statusClass: 'building',
-        statusLabel: 'Em Validação (Ciclo 1)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público / Comercial)',
         mission: 'Definir, estruturar e governar o posicionamento de autoridade e a esteira multicanal de atração.',
@@ -1356,13 +1356,26 @@
         num: '13',
         name: 'Content Agent',
         area: 'Marketing & Growth',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 1)',
+        statusClass: 'building',
+        statusLabel: 'Em Validação (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
-        access: 'Nível 1 (Público)',
-        mission: 'Planejamento editorial e produção multiformato para redes e canais proprietários.',
-        responsibilities: ['Pautas semanais e esteira de conteúdo.', 'Adaptação de formatos (LinkedIn, Reels, Newsletter).'],
-        files: [{ name: 'project/05-agents/13-content/01-discovery/MISSION.md', done: false }]
+        access: 'Nível 1 (Público / Comercial)',
+        mission: 'Planejar, gerenciar e estruturar o calendário editorial e a esteira de formatos de conteúdo.',
+        responsibilities: [
+          'Gestão do calendário editorial unificado a partir da gravação semanal do vídeo master.',
+          'Arquitetura da Newsletter Executiva Semanal (v.os Dispatch) com frameworks práticos.',
+          'Roteirização de carrosséis e infográficos de alto salvamento para Instagram e LinkedIn.',
+          'Briefings editoriais alinhados para o Copy Agent (14) e Growth Agent (15).'
+        ],
+        files: [
+          { name: 'project/05-agents/13-content/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/13-content/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/13-content/02-questionnaire/ANSWERS.md', done: true },
+          { name: 'project/05-agents/13-content/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/13-content/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/13-content/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/13-content/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '14-copy': {
         num: '14',
