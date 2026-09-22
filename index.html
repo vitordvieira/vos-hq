@@ -736,14 +736,14 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">11 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 31% do Sistema Ativo</div>
+          <div class="kpi-value">12 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 34% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Núcleos Aprovados</span>
-          <div class="kpi-value">2 / 7</div>
-          <div class="kpi-sub">Revenue & Produto (100%)</div>
+          <div class="kpi-value">3 / 7</div>
+          <div class="kpi-sub">Revenue, Produto & Marketing (100%)</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -860,8 +860,8 @@
             <div class="squad-head">
               <span class="squad-title">Marketing & Growth</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
-                <span class="progress-label">3/4</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+                <span class="progress-label">4/4</span>
               </div>
             </div>
             <div class="agent-stack">
@@ -879,7 +879,7 @@
               </div>
               <div class="agent-card" onclick="openAgent('15-growth', this)">
                 <div class="agent-card-left"><div class="agent-num">15</div><span class="agent-label">Growth Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot approved"></span>
               </div>
             </div>
           </div>
@@ -1406,13 +1406,26 @@
         num: '15',
         name: 'Growth Agent',
         area: 'Marketing & Growth',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 1)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
-        access: 'Nível 1 (Público)',
-        mission: 'Experimentos de crescimento, viral loops e otimização de taxas de conversão.',
-        responsibilities: ['Testes de hipóteses de aquisição orgânica.', 'Métricas de engajamento e CAC.'],
-        files: [{ name: 'project/05-agents/15-growth/01-discovery/MISSION.md', done: false }]
+        access: 'Nível 1 (Público / Comercial)',
+        mission: 'Líder de distribuição omnicanal, inteligência analítica de tração e otimização contínua.',
+        responsibilities: [
+          'Supervisão do Sub-Agente 15.1 (Agendamento nos horários nobres: 08h00, 11h30 e 18h00, com otimização técnica).',
+          'Supervisão do Sub-Agente 15.2 (Analytics e dados de retenção real >50% nos primeiros 30s, sem métricas de vaidade).',
+          'Supervisão do Sub-Agente 15.3 (Condução de testes A/B com até 3 variações de capas de alto contraste no YouTube).',
+          'Emissão de relatórios semanais de tração para retroalimentar os pautas editoriais dos Agentes 12, 13 e 14.'
+        ],
+        files: [
+          { name: 'project/05-agents/15-growth/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/15-growth/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/15-growth/02-questionnaire/ANSWERS.md', done: true },
+          { name: 'project/05-agents/15-growth/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/15-growth/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/15-growth/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/15-growth/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '16-pmo': {
         num: '16',
