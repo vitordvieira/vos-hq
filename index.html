@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Vieira Digital — Organograma Executivo (v.os)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vieira Digital — Organograma Corporativo (v.os)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,48 +12,49 @@
       --bg: #F8F9FA;
       --surface: #FFFFFF;
       --surface-subtle: #F3F4F6;
+      --surface-card: #FFFFFF;
       --border: #E5E7EB;
-      --border-dark: #D1D5DB;
-      --text: #111827;
-      --text-muted: #4B5563;
-      --text-subtle: #9CA3AF;
+      --border-dark: #CBD5E1;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-subtle: #94A3B8;
       --brand: #2563EB;
-      --brand-light: #EFF6FF;
-      
-      /* Status Palette (Strict & Solid) */
+      --brand-subtle: #EFF6FF;
+
+      /* Status Palette */
       --status-approved: #10B981;
       --status-approved-bg: #ECFDF5;
+      --status-approved-text: #047857;
+      
       --status-building: #F59E0B;
       --status-building-bg: #FFFBEB;
-      --status-backlog: #9CA3AF;
-      --status-backlog-bg: #F3F4F6;
+      --status-building-text: #B45309;
+
+      --status-backlog: #94A3B8;
+      --status-backlog-bg: #F1F5F9;
+      --status-backlog-text: #475569;
+
       --status-blocked: #EF4444;
       --status-blocked-bg: #FEF2F2;
+      --status-blocked-text: #B91C1C;
 
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-      --shadow-drawer: -4px 0 24px rgba(0, 0, 0, 0.08);
-      
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 14px;
+      --shadow-card: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+      --shadow-drawer: -4px 0 24px 0 rgba(0, 0, 0, 0.07);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       line-height: 1.5;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       -webkit-font-smoothing: antialiased;
+      overflow-x: auto;
     }
 
-    /* Auth Screen */
+    /* Auth Overlay */
     #authGate {
       position: fixed;
       inset: 0;
@@ -65,335 +66,290 @@
       padding: 20px;
     }
 
-    .auth-card {
+    .auth-box {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      max-width: 360px;
+      border-radius: 12px;
+      padding: 32px 28px;
+      max-width: 340px;
       width: 100%;
       text-align: center;
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-hover);
     }
 
-    .auth-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      background: var(--text);
-      color: #fff;
-      border-radius: var(--radius-md);
+    .auth-box h2 {
+      font-size: 17px;
       font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
-
-    .auth-card h2 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--text);
+      margin-bottom: 4px;
       letter-spacing: -0.01em;
     }
 
-    .auth-card p {
-      font-size: 13px;
+    .auth-box p {
+      font-size: 12px;
       color: var(--text-muted);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .auth-input {
       width: 100%;
-      padding: 10px 14px;
+      padding: 9px 12px;
       font-size: 14px;
       border: 1px solid var(--border-dark);
-      border-radius: var(--radius-sm);
+      border-radius: 6px;
       outline: none;
-      margin-bottom: 12px;
-      font-family: inherit;
+      margin-bottom: 10px;
       text-align: center;
       letter-spacing: 0.08em;
+      font-family: inherit;
     }
 
     .auth-input:focus {
       border-color: var(--brand);
-      box-shadow: 0 0 0 2px var(--brand-light);
+      box-shadow: 0 0 0 2px var(--brand-subtle);
     }
 
     .auth-btn {
       width: 100%;
-      padding: 10px 14px;
+      padding: 9px 12px;
       background: var(--brand);
       color: #fff;
       border: none;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
+      border-radius: 6px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    .auth-btn:hover {
-      background: #1D4ED8;
     }
 
     .auth-err {
       color: var(--status-blocked);
-      font-size: 12px;
+      font-size: 11px;
       margin-top: 8px;
       display: none;
     }
 
-    /* App Shell */
-    #appShell {
+    /* Main Dashboard Layout */
+    #dashboardApp {
       display: none;
       flex-direction: column;
-      flex: 1;
+      min-width: 1100px;
     }
 
-    /* Top Navigation Bar */
-    .top-nav {
+    /* Top Navigation */
+    .top-header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 40;
-    }
-
-    .nav-content {
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 14px 24px;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 30;
     }
 
-    .nav-brand {
+    .header-left {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      background: var(--text);
+    .header-logo {
+      width: 28px;
+      height: 28px;
+      background: var(--text-main);
       color: #fff;
-      border-radius: var(--radius-sm);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 13px;
       font-weight: 700;
-      font-size: 14px;
     }
 
-    .brand-titles h1 {
-      font-size: 15px;
+    .header-title h1 {
+      font-size: 14px;
       font-weight: 700;
       line-height: 1.2;
-      color: var(--text);
     }
 
-    .brand-titles span {
-      font-size: 12px;
+    .header-title span {
+      font-size: 11px;
       color: var(--text-muted);
     }
 
-    .status-legend {
+    .legend-row {
       display: flex;
       align-items: center;
       gap: 16px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
       color: var(--text-muted);
     }
 
-    .legend-item {
+    .legend-tag {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      display: inline-block;
     }
-
     .dot.green { background: var(--status-approved); }
     .dot.orange { background: var(--status-building); }
     .dot.gray { background: var(--status-backlog); }
 
-    /* Main Container */
-    .main-body {
-      max-width: 1480px;
-      margin: 0 auto;
+    /* Content Area */
+    .content-area {
       padding: 24px;
+      max-width: 1540px;
+      margin: 0 auto;
       width: 100%;
-      flex: 1;
     }
 
-    /* KPI Cards Grid */
-    .kpi-grid {
+    /* KPI Mini-Cards Row */
+    .kpi-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
       margin-bottom: 28px;
     }
 
-    .kpi-card {
+    .kpi-mini-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      box-shadow: var(--shadow-sm);
+      border-radius: 8px;
+      padding: 12px 14px;
+      box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .kpi-card .kpi-label {
+    .kpi-label {
       font-size: 11px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
       color: var(--text-subtle);
-      margin-bottom: 6px;
-    }
-
-    .kpi-card .kpi-value {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       margin-bottom: 4px;
     }
 
-    .kpi-card .kpi-sub {
-      font-size: 12px;
+    .kpi-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 11px;
       color: var(--text-muted);
+      margin-top: 4px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
 
-    .kpi-bar {
-      width: 100%;
-      height: 4px;
-      background: var(--surface-subtle);
-      border-radius: 2px;
-      overflow: hidden;
-      margin-top: 8px;
-    }
-
-    .kpi-bar-fill {
-      height: 100%;
-      background: var(--status-approved);
-      border-radius: 2px;
-    }
-
-    /* Organogram Hierarchy View */
-    .organogram-board {
+    /* Tree View / Organogram */
+    .tree-board {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: 12px;
       padding: 32px 24px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-card);
       position: relative;
     }
 
-    .org-level {
+    .tree-node-center {
       display: flex;
       justify-content: center;
       position: relative;
     }
 
-    /* Standard Card (CEO & Chief of Staff) */
-    .leader-card {
+    /* Executive Leader Cards */
+    .exec-card {
       background: var(--surface);
       border: 1px solid var(--border-dark);
-      border-radius: var(--radius-md);
-      padding: 12px 18px;
+      border-radius: 8px;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 12px;
       cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
-      min-width: 240px;
-      position: relative;
+      box-shadow: var(--shadow-card);
+      transition: all 0.12s ease;
+      min-width: 260px;
       user-select: none;
     }
 
-    .leader-card:hover {
+    .exec-card:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-hover);
       border-color: var(--brand);
     }
 
-    .leader-card.ceo-node {
-      border-left: 4px solid var(--status-approved);
-      background: #FAFAFB;
+    .exec-card.selected {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 2px var(--brand-subtle);
+      background: #FAFCFF;
     }
 
-    .leader-card.cos-node {
-      border-left: 4px solid var(--status-backlog);
+    .exec-card-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .leader-avatar {
-      width: 34px;
-      height: 34px;
+    .exec-avatar {
+      width: 28px;
+      height: 28px;
       background: var(--surface-subtle);
-      color: var(--text);
-      border-radius: var(--radius-sm);
+      border-radius: 6px;
+      font-size: 12px;
       font-weight: 700;
-      font-size: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 1px solid var(--border);
     }
 
-    .leader-info {
+    .exec-details {
       display: flex;
       flex-direction: column;
     }
 
-    .leader-role {
+    .exec-name {
       font-size: 13px;
       font-weight: 700;
-      color: var(--text);
+      color: var(--text-main);
     }
 
-    .leader-title {
+    .exec-role {
       font-size: 11px;
       color: var(--text-muted);
     }
 
-    /* Organizational Connectors */
-    .tree-connector-v {
+    /* Tree Connectors (Crisp 1.5px lines) */
+    .stem-vertical {
       width: 1.5px;
       height: 24px;
       background: var(--border-dark);
       margin: 0 auto;
     }
 
-    .tree-connector-t {
+    .stem-branch {
       position: relative;
-      width: 92%;
-      max-width: 1360px;
+      width: 90%;
       margin: 0 auto 24px;
       height: 20px;
       border-top: 1.5px solid var(--border-dark);
     }
 
-    .tree-connector-t::before {
+    .stem-branch::before {
       content: "";
       position: absolute;
       top: -20px;
@@ -405,127 +361,112 @@
     }
 
     /* Squads Grid Layout */
-    .squads-container {
+    .squads-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
       align-items: start;
     }
 
-    .squad-column {
-      background: #FAFBFC;
+    .squad-col {
+      background: #F8FAFC;
       border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 16px;
+      border-radius: 8px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .squad-header {
+    .squad-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
 
-    .squad-title-area {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
     .squad-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--text);
+      color: var(--text-main);
     }
 
-    .squad-count {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .squad-progress {
+    .squad-progress-box {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .mini-progress-bar {
-      width: 48px;
-      height: 5px;
+    .progress-track {
+      width: 36px;
+      height: 4px;
       background: var(--border);
-      border-radius: 3px;
+      border-radius: 2px;
       overflow: hidden;
     }
 
-    .mini-progress-fill {
+    .progress-fill {
       height: 100%;
       background: var(--status-approved);
-      border-radius: 3px;
+      border-radius: 2px;
     }
 
-    .mini-progress-fill.zero {
-      width: 0%;
-      background: var(--status-backlog);
-    }
-
-    .mini-progress-text {
-      font-size: 11px;
+    .progress-label {
+      font-size: 10px;
       font-weight: 600;
       color: var(--text-muted);
     }
 
-    /* Agent Cards (Clean & Essential) */
-    .agents-list {
+    /* Agent Mini-Card (ESSENTIAL ONLY) */
+    .agent-stack {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .agent-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
+      border-radius: 6px;
+      padding: 7px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+      box-shadow: var(--shadow-card);
+      transition: all 0.12s ease;
       position: relative;
       user-select: none;
     }
 
     .agent-card:hover {
       transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-hover);
       border-color: var(--border-dark);
     }
 
-    .agent-card.active-selected {
+    .agent-card.selected {
       border-color: var(--brand);
+      box-shadow: 0 0 0 2px var(--brand-subtle);
       background: #FAFCFF;
     }
 
     .agent-card-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       min-width: 0;
     }
 
-    .agent-id {
-      font-size: 11px;
+    .agent-num {
+      font-size: 10px;
       font-weight: 700;
       color: var(--text-muted);
       background: var(--surface-subtle);
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       border-radius: 4px;
       display: flex;
       align-items: center;
@@ -533,80 +474,49 @@
       flex-shrink: 0;
     }
 
-    .agent-name {
-      font-size: 13px;
+    .agent-label {
+      font-size: 12px;
       font-weight: 600;
-      color: var(--text);
+      color: var(--text-main);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    /* Solid Status Color Indicator */
-    .status-indicator {
-      width: 8px;
-      height: 8px;
+    .status-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       flex-shrink: 0;
     }
+    .status-dot.approved { background: var(--status-approved); }
+    .status-dot.building { background: var(--status-building); }
+    .status-dot.backlog { background: var(--status-backlog); }
+    .status-dot.blocked { background: var(--status-blocked); }
 
-    .status-indicator.approved {
-      background: var(--status-approved);
-      box-shadow: 0 0 0 2px var(--status-approved-bg);
-    }
-
-    .status-indicator.building {
-      background: var(--status-building);
-      box-shadow: 0 0 0 2px var(--status-building-bg);
-    }
-
-    .status-indicator.backlog {
-      background: var(--status-backlog);
-      box-shadow: 0 0 0 2px var(--status-backlog-bg);
-    }
-
-    .status-indicator.blocked {
-      background: var(--status-blocked);
-      box-shadow: 0 0 0 2px var(--status-blocked-bg);
-    }
-
-    /* Right Slide-in Side Drawer (Non-Darkening Overlay) */
-    .drawer-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      pointer-events: none;
-      background: transparent;
-      transition: background 0.2s;
-    }
-
-    .drawer-overlay.open {
-      pointer-events: auto;
-    }
-
-    .side-drawer {
+    /* Side Slide-in Drawer (NON-DARKENING) */
+    .drawer-aside {
       position: fixed;
       top: 0;
-      right: -460px;
-      width: 420px;
-      max-width: 100vw;
+      right: -420px;
+      width: 400px;
       height: 100vh;
       background: var(--surface);
       border-left: 1px solid var(--border);
       box-shadow: var(--shadow-drawer);
-      z-index: 1001;
+      z-index: 1000;
       display: flex;
       flex-direction: column;
-      transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: right 0.22s cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
     }
 
-    .side-drawer.open {
+    .drawer-aside.open {
       right: 0;
     }
 
-    .drawer-header {
-      padding: 18px 20px;
+    .drawer-head {
+      padding: 16px 20px;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -615,140 +525,131 @@
       background: #FAFAFB;
     }
 
-    .drawer-title-box {
+    .drawer-head-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       min-width: 0;
     }
 
-    .drawer-id {
-      width: 32px;
-      height: 32px;
-      background: var(--text);
+    .drawer-num-badge {
+      width: 28px;
+      height: 28px;
+      background: var(--text-main);
       color: #fff;
-      border-radius: var(--radius-sm);
+      border-radius: 6px;
+      font-size: 12px;
       font-weight: 700;
-      font-size: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .drawer-titles {
+    .drawer-names {
       display: flex;
       flex-direction: column;
       min-width: 0;
     }
 
-    .drawer-titles h2 {
-      font-size: 15px;
+    .drawer-names h2 {
+      font-size: 14px;
       font-weight: 700;
-      color: var(--text);
+      color: var(--text-main);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .drawer-titles span {
-      font-size: 12px;
+    .drawer-names span {
+      font-size: 11px;
       color: var(--text-muted);
     }
 
-    .drawer-close-btn {
-      width: 30px;
-      height: 30px;
+    .drawer-close {
+      width: 26px;
+      height: 26px;
       background: transparent;
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
+      border-radius: 5px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 12px;
       color: var(--text-muted);
-      transition: background 0.15s, color 0.15s;
-      flex-shrink: 0;
     }
 
-    .drawer-close-btn:hover {
+    .drawer-close:hover {
       background: var(--surface-subtle);
-      color: var(--text);
+      color: var(--text-main);
     }
 
-    .drawer-body {
+    .drawer-scroll {
       padding: 20px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
       flex: 1;
     }
 
-    /* Meta Badges Row */
-    .meta-pills {
+    .drawer-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
 
-    .meta-pill {
+    .pill {
       font-size: 11px;
       font-weight: 600;
-      padding: 4px 8px;
+      padding: 3px 8px;
       border-radius: 4px;
       background: var(--surface-subtle);
       color: var(--text-muted);
       border: 1px solid var(--border);
     }
 
-    .meta-pill.status-tag {
-      border: none;
-    }
+    .pill.approved { background: var(--status-approved-bg); color: var(--status-approved-text); border-color: transparent; }
+    .pill.building { background: var(--status-building-bg); color: var(--status-building-text); border-color: transparent; }
+    .pill.backlog { background: var(--status-backlog-bg); color: var(--status-backlog-text); border-color: transparent; }
 
-    .meta-pill.approved { background: var(--status-approved-bg); color: #047857; }
-    .meta-pill.building { background: var(--status-building-bg); color: #B45309; }
-    .meta-pill.backlog { background: var(--status-backlog-bg); color: #4B5563; }
-    .meta-pill.blocked { background: var(--status-blocked-bg); color: #B91C1C; }
-
-    /* Section Styling */
-    .drawer-section {
+    .drawer-block {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .drawer-section h3 {
+    .drawer-block h3 {
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       color: var(--text-subtle);
     }
 
-    .drawer-section p {
-      font-size: 13px;
-      color: var(--text);
+    .drawer-block p {
+      font-size: 12.5px;
+      color: var(--text-main);
       line-height: 1.5;
     }
 
-    .resp-list {
+    .bullet-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .resp-list li {
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.45;
-      padding-left: 14px;
+    .bullet-list li {
+      font-size: 12.5px;
+      color: var(--text-main);
+      line-height: 1.4;
+      padding-left: 12px;
       position: relative;
     }
 
-    .resp-list li::before {
+    .bullet-list li::before {
       content: "•";
       position: absolute;
       left: 0;
@@ -756,412 +657,365 @@
       font-weight: 700;
     }
 
-    /* File List & Links */
-    .file-items {
+    .file-list {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
     }
 
-    .file-link-item {
+    .file-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 10px;
+      padding: 7px 10px;
       background: var(--surface-subtle);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-size: 12px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      color: var(--text);
+      border-radius: 5px;
+      font-size: 11.5px;
+      font-family: ui-monospace, Menlo, Monaco, monospace;
+      color: var(--text-main);
       text-decoration: none;
-      transition: border-color 0.15s, background 0.15s;
     }
 
-    .file-link-item:hover {
+    .file-item:hover {
       border-color: var(--brand);
       background: #EFF6FF;
     }
 
-    .file-link-item .file-status {
-      font-size: 11px;
+    .file-tag {
+      font-size: 10px;
       font-weight: 600;
       color: var(--status-approved);
     }
 
-    .file-link-item .file-status.pending {
+    .file-tag.pending {
       color: var(--text-subtle);
-    }
-
-    /* Footer */
-    footer.app-footer {
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 16px 24px 32px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--text-subtle);
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 768px) {
-      .squads-container { grid-template-columns: 1fr; }
-      .nav-content { flex-direction: column; align-items: flex-start; }
-      .side-drawer { width: 100vw; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Screen 1: Password Gate -->
+  <!-- Password Screen -->
   <div id="authGate">
-    <div class="auth-card">
-      <div class="auth-badge">v.os</div>
+    <div class="auth-box">
       <h2>Vieira Digital</h2>
-      <p>Organograma Operacional & Sistema de Agentes</p>
-      <input type="password" id="passInput" class="auth-input" placeholder="Senha de acesso" onkeydown="handleKey(event)" autofocus>
+      <p>Organograma Operacional v.os</p>
+      <input type="password" id="passInput" class="auth-input" placeholder="Senha de acesso" onkeydown="if(event.key==='Enter')checkAuth()" autofocus>
       <button class="auth-btn" onclick="checkAuth()">Acessar Organograma</button>
-      <div class="auth-err" id="authError">Senha incorreta. Tente novamente.</div>
+      <div class="auth-err" id="authError">Senha incorreta.</div>
     </div>
   </div>
 
-  <!-- Screen 2: Main Application Shell -->
-  <div id="appShell">
-    
-    <!-- Top Bar -->
-    <header class="top-nav">
-      <div class="nav-content">
-        <div class="nav-brand">
-          <div class="brand-mark">V</div>
-          <div class="brand-titles">
-            <h1>Vieira Digital — Organograma v.os</h1>
-            <span>Sistema Operacional 100% Autônomo com IA</span>
-          </div>
+  <!-- Main View -->
+  <div id="dashboardApp">
+
+    <header class="top-header">
+      <div class="header-left">
+        <div class="header-logo">V</div>
+        <div class="header-title">
+          <h1>Vieira Digital — Organograma de Operações (v.os)</h1>
+          <span>Estrutura Corporativa dos 34 Agentes de IA</span>
         </div>
-        <div class="status-legend">
-          <div class="legend-item"><span class="dot green"></span> Aprovado / Ativo</div>
-          <div class="legend-item"><span class="dot orange"></span> Em Construção</div>
-          <div class="legend-item"><span class="dot gray"></span> Backlog</div>
-        </div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-tag"><span class="dot green"></span> Aprovado / Ativo</div>
+        <div class="legend-tag"><span class="dot orange"></span> Em Construção</div>
+        <div class="legend-tag"><span class="dot gray"></span> Backlog</div>
       </div>
     </header>
 
-    <main class="main-body">
+    <div class="content-area">
 
-      <!-- Executive KPIs Strip -->
-      <section class="kpi-grid">
-        <div class="kpi-card">
+      <!-- KPI Mini-Cards -->
+      <section class="kpi-row">
+        <div class="kpi-mini-card">
+          <span class="kpi-label">Discovery & Governança</span>
+          <div class="kpi-value">10 / 10</div>
+          <div class="kpi-sub"><span class="dot green"></span> 100% Consolidado</div>
+        </div>
+
+        <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">8 <span style="font-size: 14px; font-weight: 500; color: var(--text-muted);">/ 35</span></div>
+          <div class="kpi-value">8 / 35</div>
           <div class="kpi-sub"><span class="dot green"></span> 23% do Sistema Ativo</div>
-          <div class="kpi-bar"><div class="kpi-bar-fill" style="width: 23%;"></div></div>
         </div>
 
-        <div class="kpi-card">
-          <span class="kpi-label">Revenue & Vendas</span>
-          <div class="kpi-value">6 <span style="font-size: 14px; font-weight: 500; color: var(--text-muted);">/ 6</span></div>
-          <div class="kpi-sub"><span class="dot green"></span> 100% Aprovado & Operando</div>
-          <div class="kpi-bar"><div class="kpi-bar-fill" style="width: 100%;"></div></div>
+        <div class="kpi-mini-card">
+          <span class="kpi-label">Núcleos Aprovados</span>
+          <div class="kpi-value">2 / 7</div>
+          <div class="kpi-sub">Revenue & Produto (100%)</div>
         </div>
 
-        <div class="kpi-card">
-          <span class="kpi-label">Produto & Oferta</span>
-          <div class="kpi-value">2 <span style="font-size: 14px; font-weight: 500; color: var(--text-muted);">/ 2</span></div>
-          <div class="kpi-sub"><span class="dot green"></span> 100% Aprovado (Catálogo + LTV)</div>
-          <div class="kpi-bar"><div class="kpi-bar-fill" style="width: 100%;"></div></div>
-        </div>
-
-        <div class="kpi-card">
-          <span class="kpi-label">Meta Marco 1</span>
+        <div class="kpi-mini-card">
+          <span class="kpi-label">Meta Recorrência</span>
           <div class="kpi-value" style="color: var(--brand);">R$ 50.000</div>
-          <div class="kpi-sub">Líquido / mês por Recorrência Pura</div>
+          <div class="kpi-sub">Líquido / mês sustentado</div>
         </div>
 
-        <div class="kpi-card">
-          <span class="kpi-label">Colchão de Reserva</span>
+        <div class="kpi-mini-card">
+          <span class="kpi-label">Reserva Meta</span>
           <div class="kpi-value">R$ 300.000</div>
-          <div class="kpi-sub">6 meses de Segurança Operacional</div>
+          <div class="kpi-sub">6 meses de Operação</div>
         </div>
       </section>
 
-      <!-- Organogram Structure -->
-      <section class="organogram-board">
-        
+      <!-- Organogram Tree -->
+      <section class="tree-board">
+
         <!-- Level 0: CEO -->
-        <div class="org-level">
-          <div class="leader-card ceo-node" onclick="openDrawer('00-ceo')">
-            <div class="leader-avatar">VV</div>
-            <div class="leader-info">
-              <span class="leader-role">Vitor Vieira</span>
-              <span class="leader-title">CEO & Founder (C4 Supremo)</span>
+        <div class="tree-node-center">
+          <div class="exec-card" onclick="openAgent('00-ceo', this)">
+            <div class="exec-card-left">
+              <div class="exec-avatar">VV</div>
+              <div class="exec-details">
+                <span class="exec-name">Vitor Vieira</span>
+                <span class="exec-role">CEO & Founder (C4 Supremo)</span>
+              </div>
             </div>
-            <span class="status-indicator approved" style="margin-left: auto;"></span>
+            <span class="status-dot approved"></span>
           </div>
         </div>
 
-        <div class="tree-connector-v"></div>
+        <div class="stem-vertical"></div>
 
         <!-- Level 1: Chief of Staff -->
-        <div class="org-level">
-          <div class="leader-card cos-node" onclick="openDrawer('01-cos')">
-            <div class="leader-avatar">01</div>
-            <div class="leader-info">
-              <span class="leader-role">Chief of Staff Agent</span>
-              <span class="leader-title">Coordenação Executiva & Orquestração</span>
+        <div class="tree-node-center">
+          <div class="exec-card" onclick="openAgent('01-cos', this)">
+            <div class="exec-card-left">
+              <div class="exec-avatar">01</div>
+              <div class="exec-details">
+                <span class="exec-name">Chief of Staff</span>
+                <span class="exec-role">Coordenação Executiva</span>
+              </div>
             </div>
-            <span class="status-indicator backlog" style="margin-left: auto;"></span>
+            <span class="status-dot backlog"></span>
           </div>
         </div>
 
-        <!-- Tree Branch T-Connector -->
-        <div class="tree-connector-t"></div>
+        <div class="stem-branch"></div>
 
-        <!-- Level 2: Squads Grid -->
-        <div class="squads-container">
+        <!-- Level 2: Squads Columns -->
+        <div class="squads-grid">
 
           <!-- Squad 1: Revenue & Vendas -->
-          <div class="squad-column">
-            <div class="squad-header">
-              <div class="squad-title-area">
-                <span class="squad-title">Revenue & Vendas</span>
-                <span class="squad-count">6 agentes · Ciclo 1</span>
-              </div>
-              <div class="squad-progress">
-                <div class="mini-progress-bar"><div class="mini-progress-fill" style="width: 100%;"></div></div>
-                <span class="mini-progress-text">6/6</span>
+          <div class="squad-col">
+            <div class="squad-head">
+              <span class="squad-title">Revenue & Vendas</span>
+              <div class="squad-progress-box">
+                <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+                <span class="progress-label">6/6</span>
               </div>
             </div>
-            <div class="agents-list">
-              <div class="agent-card" onclick="openDrawer('07-icp')">
-                <div class="agent-card-left"><div class="agent-id">07</div><div class="agent-name">ICP Agent</div></div>
-                <span class="status-indicator approved"></span>
+            <div class="agent-stack">
+              <div class="agent-card" onclick="openAgent('07-icp', this)">
+                <div class="agent-card-left"><div class="agent-num">07</div><span class="agent-label">ICP Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('08-prospecting')">
-                <div class="agent-card-left"><div class="agent-id">08</div><div class="agent-name">Prospecting Agent</div></div>
-                <span class="status-indicator approved"></span>
+              <div class="agent-card" onclick="openAgent('08-prospecting', this)">
+                <div class="agent-card-left"><div class="agent-num">08</div><span class="agent-label">Prospecting Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('09-sales')">
-                <div class="agent-card-left"><div class="agent-id">09</div><div class="agent-name">Sales Agent</div></div>
-                <span class="status-indicator approved"></span>
+              <div class="agent-card" onclick="openAgent('09-sales', this)">
+                <div class="agent-card-left"><div class="agent-num">09</div><span class="agent-label">Sales Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('10-proposal')">
-                <div class="agent-card-left"><div class="agent-id">10</div><div class="agent-name">Proposal Agent</div></div>
-                <span class="status-indicator approved"></span>
+              <div class="agent-card" onclick="openAgent('10-proposal', this)">
+                <div class="agent-card-left"><div class="agent-num">10</div><span class="agent-label">Proposal Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('11-crm')">
-                <div class="agent-card-left"><div class="agent-id">11</div><div class="agent-name">CRM Agent</div></div>
-                <span class="status-indicator approved"></span>
+              <div class="agent-card" onclick="openAgent('11-crm', this)">
+                <div class="agent-card-left"><div class="agent-num">11</div><span class="agent-label">CRM Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('06-revenue')">
-                <div class="agent-card-left"><div class="agent-id">06</div><div class="agent-name">Revenue Agent</div></div>
-                <span class="status-indicator approved"></span>
+              <div class="agent-card" onclick="openAgent('06-revenue', this)">
+                <div class="agent-card-left"><div class="agent-num">06</div><span class="agent-label">Revenue Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
             </div>
           </div>
 
           <!-- Squad 2: Produto & Oferta -->
-          <div class="squad-column">
-            <div class="squad-header">
-              <div class="squad-title-area">
-                <span class="squad-title">Produto & Oferta</span>
-                <span class="squad-count">2 agentes · Ciclo 1</span>
-              </div>
-              <div class="squad-progress">
-                <div class="mini-progress-bar"><div class="mini-progress-fill" style="width: 100%;"></div></div>
-                <span class="mini-progress-text">2/2</span>
+          <div class="squad-col">
+            <div class="squad-head">
+              <span class="squad-title">Produto & Oferta</span>
+              <div class="squad-progress-box">
+                <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+                <span class="progress-label">2/2</span>
               </div>
             </div>
-            <div class="agents-list">
-              <div class="agent-card" onclick="openDrawer('04-product')">
-                <div class="agent-card-left"><div class="agent-id">04</div><div class="agent-name">Product Agent</div></div>
-                <span class="status-indicator approved"></span>
+            <div class="agent-stack">
+              <div class="agent-card" onclick="openAgent('04-product', this)">
+                <div class="agent-card-left"><div class="agent-num">04</div><span class="agent-label">Product Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('05-offer')">
-                <div class="agent-card-left"><div class="agent-id">05</div><div class="agent-name">Offer Agent</div></div>
-                <span class="status-indicator approved"></span>
+              <div class="agent-card" onclick="openAgent('05-offer', this)">
+                <div class="agent-card-left"><div class="agent-num">05</div><span class="agent-label">Offer Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
             </div>
           </div>
 
           <!-- Squad 3: Marketing & Growth -->
-          <div class="squad-column">
-            <div class="squad-header">
-              <div class="squad-title-area">
-                <span class="squad-title">Marketing & Growth</span>
-                <span class="squad-count">4 agentes · Ciclo 1</span>
-              </div>
-              <div class="squad-progress">
-                <div class="mini-progress-bar"><div class="mini-progress-fill zero"></div></div>
-                <span class="mini-progress-text">0/4</span>
+          <div class="squad-col">
+            <div class="squad-head">
+              <span class="squad-title">Marketing & Growth</span>
+              <div class="squad-progress-box">
+                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
+                <span class="progress-label">0/4</span>
               </div>
             </div>
-            <div class="agents-list">
-              <div class="agent-card" onclick="openDrawer('12-marketing')">
-                <div class="agent-card-left"><div class="agent-id">12</div><div class="agent-name">Marketing Agent</div></div>
-                <span class="status-indicator backlog"></span>
+            <div class="agent-stack">
+              <div class="agent-card" onclick="openAgent('12-marketing', this)">
+                <div class="agent-card-left"><div class="agent-num">12</div><span class="agent-label">Marketing Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('13-content')">
-                <div class="agent-card-left"><div class="agent-id">13</div><div class="agent-name">Content Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('13-content', this)">
+                <div class="agent-card-left"><div class="agent-num">13</div><span class="agent-label">Content Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('14-copy')">
-                <div class="agent-card-left"><div class="agent-id">14</div><div class="agent-name">Copy Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('14-copy', this)">
+                <div class="agent-card-left"><div class="agent-num">14</div><span class="agent-label">Copy Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('15-growth')">
-                <div class="agent-card-left"><div class="agent-id">15</div><div class="agent-name">Growth Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('15-growth', this)">
+                <div class="agent-card-left"><div class="agent-num">15</div><span class="agent-label">Growth Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
             </div>
           </div>
 
-          <!-- Squad 4: Operações & Implementação -->
-          <div class="squad-column">
-            <div class="squad-header">
-              <div class="squad-title-area">
-                <span class="squad-title">Operações & Entrega</span>
-                <span class="squad-count">5 agentes · Ciclo 2</span>
-              </div>
-              <div class="squad-progress">
-                <div class="mini-progress-bar"><div class="mini-progress-fill zero"></div></div>
-                <span class="mini-progress-text">0/5</span>
+          <!-- Squad 4: Operações & Entrega -->
+          <div class="squad-col">
+            <div class="squad-head">
+              <span class="squad-title">Operações & Entrega</span>
+              <div class="squad-progress-box">
+                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
+                <span class="progress-label">0/5</span>
               </div>
             </div>
-            <div class="agents-list">
-              <div class="agent-card" onclick="openDrawer('34-ops')">
-                <div class="agent-card-left"><div class="agent-id">34</div><div class="agent-name">Operations Agent</div></div>
-                <span class="status-indicator backlog"></span>
+            <div class="agent-stack">
+              <div class="agent-card" onclick="openAgent('34-ops', this)">
+                <div class="agent-card-left"><div class="agent-num">34</div><span class="agent-label">Operations Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('23-implementation')">
-                <div class="agent-card-left"><div class="agent-id">23</div><div class="agent-name">Implementation Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('23-implementation', this)">
+                <div class="agent-card-left"><div class="agent-num">23</div><span class="agent-label">Implementation Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('24-process')">
-                <div class="agent-card-left"><div class="agent-id">24</div><div class="agent-name">Process Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('24-process', this)">
+                <div class="agent-card-left"><div class="agent-num">24</div><span class="agent-label">Process Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('25-systems')">
-                <div class="agent-card-left"><div class="agent-id">25</div><div class="agent-name">Systems Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('25-systems', this)">
+                <div class="agent-card-left"><div class="agent-num">25</div><span class="agent-label">Systems Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('26-automation')">
-                <div class="agent-card-left"><div class="agent-id">26</div><div class="agent-name">Automation Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('26-automation', this)">
+                <div class="agent-card-left"><div class="agent-num">26</div><span class="agent-label">Automation Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
             </div>
           </div>
 
           <!-- Squad 5: PMO & Projetos -->
-          <div class="squad-column">
-            <div class="squad-header">
-              <div class="squad-title-area">
-                <span class="squad-title">PMO & Projetos</span>
-                <span class="squad-count">5 agentes · Ciclo 2</span>
-              </div>
-              <div class="squad-progress">
-                <div class="mini-progress-bar"><div class="mini-progress-fill zero"></div></div>
-                <span class="mini-progress-text">0/5</span>
+          <div class="squad-col">
+            <div class="squad-head">
+              <span class="squad-title">PMO & Projetos</span>
+              <div class="squad-progress-box">
+                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
+                <span class="progress-label">0/5</span>
               </div>
             </div>
-            <div class="agents-list">
-              <div class="agent-card" onclick="openDrawer('16-pmo')">
-                <div class="agent-card-left"><div class="agent-id">16</div><div class="agent-name">PMO Agent</div></div>
-                <span class="status-indicator backlog"></span>
+            <div class="agent-stack">
+              <div class="agent-card" onclick="openAgent('16-pmo', this)">
+                <div class="agent-card-left"><div class="agent-num">16</div><span class="agent-label">PMO Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('17-pm')">
-                <div class="agent-card-left"><div class="agent-id">17</div><div class="agent-name">Project Manager Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('17-pm', this)">
+                <div class="agent-card-left"><div class="agent-num">17</div><span class="agent-label">Project Manager Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('18-planning')">
-                <div class="agent-card-left"><div class="agent-id">18</div><div class="agent-name">Project Planning Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('18-planning', this)">
+                <div class="agent-card-left"><div class="agent-num">18</div><span class="agent-label">Project Planning Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('19-meeting')">
-                <div class="agent-card-left"><div class="agent-id">19</div><div class="agent-name">Meeting Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('19-meeting', this)">
+                <div class="agent-card-left"><div class="agent-num">19</div><span class="agent-label">Meeting Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('20-risk')">
-                <div class="agent-card-left"><div class="agent-id">20</div><div class="agent-name">Risk Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('20-risk', this)">
+                <div class="agent-card-left"><div class="agent-num">20</div><span class="agent-label">Risk Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
             </div>
           </div>
 
           <!-- Squad 6: Customer Success -->
-          <div class="squad-column">
-            <div class="squad-header">
-              <div class="squad-title-area">
-                <span class="squad-title">Customer Success</span>
-                <span class="squad-count">2 agentes · Ciclo 3</span>
-              </div>
-              <div class="squad-progress">
-                <div class="mini-progress-bar"><div class="mini-progress-fill zero"></div></div>
-                <span class="mini-progress-text">0/2</span>
+          <div class="squad-col">
+            <div class="squad-head">
+              <span class="squad-title">Customer Success</span>
+              <div class="squad-progress-box">
+                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
+                <span class="progress-label">0/2</span>
               </div>
             </div>
-            <div class="agents-list">
-              <div class="agent-card" onclick="openDrawer('21-cs')">
-                <div class="agent-card-left"><div class="agent-id">21</div><div class="agent-name">Customer Success Agent</div></div>
-                <span class="status-indicator backlog"></span>
+            <div class="agent-stack">
+              <div class="agent-card" onclick="openAgent('21-cs', this)">
+                <div class="agent-card-left"><div class="agent-num">21</div><span class="agent-label">Customer Success</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('22-account')">
-                <div class="agent-card-left"><div class="agent-id">22</div><div class="agent-name">Account Management</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('22-account', this)">
+                <div class="agent-card-left"><div class="agent-num">22</div><span class="agent-label">Account Management</span></div>
+                <span class="status-dot backlog"></span>
               </div>
             </div>
           </div>
 
-          <!-- Squad 7: Inteligência, IA & Governança -->
-          <div class="squad-column">
-            <div class="squad-header">
-              <div class="squad-title-area">
-                <span class="squad-title">Inteligência & Governança</span>
-                <span class="squad-count">9 agentes · Ciclo 4</span>
-              </div>
-              <div class="squad-progress">
-                <div class="mini-progress-bar"><div class="mini-progress-fill zero"></div></div>
-                <span class="mini-progress-text">0/9</span>
+          <!-- Squad 7: Inteligência & Governança -->
+          <div class="squad-col">
+            <div class="squad-head">
+              <span class="squad-title">Inteligência & IA</span>
+              <div class="squad-progress-box">
+                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
+                <span class="progress-label">0/9</span>
               </div>
             </div>
-            <div class="agents-list">
-              <div class="agent-card" onclick="openDrawer('02-strategy')">
-                <div class="agent-card-left"><div class="agent-id">02</div><div class="agent-name">Strategy Agent</div></div>
-                <span class="status-indicator backlog"></span>
+            <div class="agent-stack">
+              <div class="agent-card" onclick="openAgent('02-strategy', this)">
+                <div class="agent-card-left"><div class="agent-num">02</div><span class="agent-label">Strategy Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('03-research')">
-                <div class="agent-card-left"><div class="agent-id">03</div><div class="agent-name">Research Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('03-research', this)">
+                <div class="agent-card-left"><div class="agent-num">03</div><span class="agent-label">Research Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('27-ai')">
-                <div class="agent-card-left"><div class="agent-id">27</div><div class="agent-name">AI Architect Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('27-ai', this)">
+                <div class="agent-card-left"><div class="agent-num">27</div><span class="agent-label">AI Architect Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('28-knowledge')">
-                <div class="agent-card-left"><div class="agent-id">28</div><div class="agent-name">Knowledge Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('28-knowledge', this)">
+                <div class="agent-card-left"><div class="agent-num">28</div><span class="agent-label">Knowledge Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('29-data')">
-                <div class="agent-card-left"><div class="agent-id">29</div><div class="agent-name">Data Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('29-data', this)">
+                <div class="agent-card-left"><div class="agent-num">29</div><span class="agent-label">Data Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('30-finance')">
-                <div class="agent-card-left"><div class="agent-id">30</div><div class="agent-name">Finance Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('30-finance', this)">
+                <div class="agent-card-left"><div class="agent-num">30</div><span class="agent-label">Finance Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('31-quality')">
-                <div class="agent-card-left"><div class="agent-id">31</div><div class="agent-name">Quality (QA) Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('31-quality', this)">
+                <div class="agent-card-left"><div class="agent-num">31</div><span class="agent-label">Quality (QA) Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('32-assistant')">
-                <div class="agent-card-left"><div class="agent-id">32</div><div class="agent-name">Executive Assistant</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('32-assistant', this)">
+                <div class="agent-card-left"><div class="agent-num">32</div><span class="agent-label">Executive Assistant</span></div>
+                <span class="status-dot backlog"></span>
               </div>
-              <div class="agent-card" onclick="openDrawer('33-legal')">
-                <div class="agent-card-left"><div class="agent-id">33</div><div class="agent-name">Legal Agent</div></div>
-                <span class="status-indicator backlog"></span>
+              <div class="agent-card" onclick="openAgent('33-legal', this)">
+                <div class="agent-card-left"><div class="agent-num">33</div><span class="agent-label">Legal Agent</span></div>
+                <span class="status-dot backlog"></span>
               </div>
             </div>
           </div>
@@ -1170,64 +1024,53 @@
 
       </section>
 
-    </main>
-
-    <footer class="app-footer">
-      <span>Vieira Digital · Sistema Operacional de Agentes (v.os)</span>
-      <span>GitHub Sync Ativo</span>
-    </footer>
+    </div>
 
   </div>
 
-  <!-- Slide-in Side Drawer (Non-Darkening Overlay) -->
-  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer(event)">
-    <aside class="side-drawer" id="sideDrawer" onclick="event.stopPropagation()">
-      <div class="drawer-header">
-        <div class="drawer-title-box">
-          <div class="drawer-id" id="dId">07</div>
-          <div class="drawer-titles">
-            <h2 id="dName">ICP Agent</h2>
-            <span id="dArea">Revenue & Vendas</span>
-          </div>
-        </div>
-        <button class="drawer-close-btn" onclick="closeDrawer()" title="Fechar (Esc)">✕</button>
-      </div>
-
-      <div class="drawer-body">
-        <!-- Status & Meta Pills -->
-        <div class="meta-pills" id="dMeta">
-          <span class="meta-pill status-tag approved" id="dStatusTag">Aprovado</span>
-          <span class="meta-pill" id="dTrust">C1 Supervisionado</span>
-          <span class="meta-pill" id="dAccess">Nível 1 (Público)</span>
-        </div>
-
-        <!-- Section 1: Missão -->
-        <div class="drawer-section">
-          <h3>Missão do Agente</h3>
-          <p id="dMission">Descrição da missão do agente.</p>
-        </div>
-
-        <!-- Section 2: Responsabilidades & Regras -->
-        <div class="drawer-section">
-          <h3>Responsabilidades & Diretrizes</h3>
-          <ul class="resp-list" id="dResp">
-            <li>Item de responsabilidade</li>
-          </ul>
-        </div>
-
-        <!-- Section 3: Documentação no GitHub -->
-        <div class="drawer-section">
-          <h3>Documentação no Repositório</h3>
-          <div class="file-items" id="dFiles">
-            <a href="#" class="file-link-item">
-              <span>01-discovery/MISSION.md</span>
-              <span class="file-status">✓ Pronto</span>
-            </a>
-          </div>
+  <!-- Side Slide-in Drawer (NO DARKENING) -->
+  <aside class="drawer-aside" id="sideDrawer">
+    <div class="drawer-head">
+      <div class="drawer-head-left">
+        <div class="drawer-num-badge" id="dNum">07</div>
+        <div class="drawer-names">
+          <h2 id="dName">ICP Agent</h2>
+          <span id="dArea">Revenue & Vendas</span>
         </div>
       </div>
-    </aside>
-  </div>
+      <button class="drawer-close" onclick="closeDrawer()" title="Fechar (Esc)">✕</button>
+    </div>
+
+    <div class="drawer-scroll">
+      <div class="drawer-pills" id="dPills">
+        <span class="pill approved" id="dStatusPill">Aprovado & Ativo</span>
+        <span class="pill" id="dTrustPill">C1 Supervisionado</span>
+        <span class="pill" id="dAccessPill">Nível 1 (Público)</span>
+      </div>
+
+      <div class="drawer-block">
+        <h3>Missão do Agente</h3>
+        <p id="dMission">Descrição da missão.</p>
+      </div>
+
+      <div class="drawer-block">
+        <h3>Responsabilidades & Diretrizes</h3>
+        <ul class="bullet-list" id="dResp">
+          <li>Responsabilidade</li>
+        </ul>
+      </div>
+
+      <div class="drawer-block">
+        <h3>Documentação no Repositório</h3>
+        <div class="file-list" id="dFiles">
+          <a href="#" class="file-item">
+            <span>MISSION.md</span>
+            <span class="file-tag">✓ Documentado</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <script>
     const AUTH_PASS = "Vieir@97";
@@ -1235,23 +1078,19 @@
     function checkAuth() {
       const input = document.getElementById("passInput").value;
       if (input === AUTH_PASS) {
-        sessionStorage.setItem("vos_auth", "true");
+        localStorage.setItem("vos_auth", "true");
         unlockApp();
       } else {
         document.getElementById("authError").style.display = "block";
       }
     }
 
-    function handleKey(e) {
-      if (e.key === "Enter") checkAuth();
-    }
-
     function unlockApp() {
       document.getElementById("authGate").style.display = "none";
-      document.getElementById("appShell").style.display = "flex";
+      document.getElementById("dashboardApp").style.display = "flex";
     }
 
-    if (sessionStorage.getItem("vos_auth") === "true") {
+    if (localStorage.getItem("vos_auth") === "true") {
       unlockApp();
     }
 
@@ -1259,12 +1098,11 @@
 
     const agentsData = {
       '00-ceo': {
-        id: '00',
+        num: 'VV',
         name: 'Vitor (CEO / Founder)',
         area: 'Liderança Suprema & Estratégia',
-        status: 'APPROVED',
-        statusLabel: 'Ativo (Humano)',
         statusClass: 'approved',
+        statusLabel: 'Ativo (Humano)',
         trust: 'C4 (Decisão Suprema)',
         access: 'Nível 1, 2 e 3 (Irrestrito)',
         mission: 'Fundador, estrategista e tomador de decisões finais da Vieira Digital.',
@@ -1281,12 +1119,11 @@
         ]
       },
       '01-cos': {
-        id: '01',
+        num: '01',
         name: 'Chief of Staff Agent',
         area: 'Coordenação Executiva',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 1)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1, 2 e 3',
         mission: 'Orquestrador executivo central e braço direito do CEO para coordenação de todos os agentes.',
@@ -1301,12 +1138,11 @@
         ]
       },
       '04-product': {
-        id: '04',
+        num: '04',
         name: 'Product Agent',
         area: 'Produto & Oferta',
-        status: 'APPROVED',
-        statusLabel: 'Aprovado & Ativo',
         statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
         mission: 'Desenhar, padronizar, empacotar e evoluir o catálogo oficial de produtos da Vieira Digital.',
@@ -1327,12 +1163,11 @@
         ]
       },
       '05-offer': {
-        id: '05',
+        num: '05',
         name: 'Offer Agent',
         area: 'Produto & Oferta',
-        status: 'APPROVED',
-        statusLabel: 'Aprovado & Ativo',
         statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
         mission: 'Transformar o catálogo de produtos em ofertas de alta conversão, precificação ancorada e esteiras de LTV.',
@@ -1353,12 +1188,11 @@
         ]
       },
       '06-revenue': {
-        id: '06',
+        num: '06',
         name: 'Revenue Agent',
         area: 'Revenue & Vendas',
-        status: 'APPROVED',
-        statusLabel: 'Aprovado & Ativo',
         statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1, 2 e 3 (Restrito / Financeiro)',
         mission: 'Controlar o marco de R$ 50k líquido sustentado 100% por recorrência e a reserva de R$ 300k.',
@@ -1376,12 +1210,11 @@
         ]
       },
       '07-icp': {
-        id: '07',
+        num: '07',
         name: 'ICP Agent',
         area: 'Revenue & Vendas',
-        status: 'APPROVED',
-        statusLabel: 'Aprovado & Ativo',
         statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público / Comercial)',
         mission: 'Definir, manter e auditar os critérios cirúrgicos de qualificação de clientes ideais.',
@@ -1400,12 +1233,11 @@
         ]
       },
       '08-prospecting': {
-        id: '08',
+        num: '08',
         name: 'Prospecting Agent',
         area: 'Revenue & Vendas',
-        status: 'APPROVED',
-        statusLabel: 'Aprovado & Ativo',
         statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público / Comercial)',
         mission: 'Mapear e rastrear decisores e leads qualificados 7 dias por semana.',
@@ -1424,12 +1256,11 @@
         ]
       },
       '09-sales': {
-        id: '09',
+        num: '09',
         name: 'Sales Agent',
         area: 'Revenue & Vendas',
-        status: 'APPROVED',
-        statusLabel: 'Aprovado & Ativo',
         statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
         mission: 'Conduzir a negociação e fechamento de contratos de R$ 10.000 a R$ 15.000.',
@@ -1449,12 +1280,11 @@
         ]
       },
       '10-proposal': {
-        id: '10',
+        num: '10',
         name: 'Proposal Agent',
         area: 'Revenue & Vendas',
-        status: 'APPROVED',
-        statusLabel: 'Aprovado & Ativo',
         statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
         mission: 'Gerar propostas comerciais executivas e minutas de contrato blindadas.',
@@ -1474,12 +1304,11 @@
         ]
       },
       '11-crm': {
-        id: '11',
+        num: '11',
         name: 'CRM Agent',
         area: 'Revenue & Vendas',
-        status: 'APPROVED',
-        statusLabel: 'Aprovado & Ativo',
         statusClass: 'approved',
+        statusLabel: 'Aprovado & Ativo',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Comercial / Operacional)',
         mission: 'Gerenciar o pipeline comercial e garantir a Timeline Eterna de cada cliente.',
@@ -1499,12 +1328,11 @@
         ]
       },
       '12-marketing': {
-        id: '12',
+        num: '12',
         name: 'Marketing Agent',
         area: 'Marketing & Growth',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 1)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público)',
         mission: 'Posicionamento institucional, autoridade da marca e estratégia de atração.',
@@ -1512,12 +1340,11 @@
         files: [{ name: 'project/05-agents/12-marketing/01-discovery/MISSION.md', done: false }]
       },
       '13-content': {
-        id: '13',
+        num: '13',
         name: 'Content Agent',
         area: 'Marketing & Growth',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 1)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público)',
         mission: 'Planejamento editorial e produção multiformato para redes e canais proprietários.',
@@ -1525,12 +1352,11 @@
         files: [{ name: 'project/05-agents/13-content/01-discovery/MISSION.md', done: false }]
       },
       '14-copy': {
-        id: '14',
+        num: '14',
         name: 'Copy Agent',
         area: 'Marketing & Growth',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 1)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público)',
         mission: 'Copywriting de resposta direta, scripts de conteúdo e criativos de alto impacto.',
@@ -1538,12 +1364,11 @@
         files: [{ name: 'project/05-agents/14-copy/01-discovery/MISSION.md', done: false }]
       },
       '15-growth': {
-        id: '15',
+        num: '15',
         name: 'Growth Agent',
         area: 'Marketing & Growth',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 1)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 1)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público)',
         mission: 'Experimentos de crescimento, viral loops e otimização de taxas de conversão.',
@@ -1551,12 +1376,11 @@
         files: [{ name: 'project/05-agents/15-growth/01-discovery/MISSION.md', done: false }]
       },
       '16-pmo': {
-        id: '16',
+        num: '16',
         name: 'PMO Agent',
         area: 'PMO & Projetos',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Governança global de projetos, capacidade de equipe e prazos.',
@@ -1564,12 +1388,11 @@
         files: [{ name: 'project/05-agents/16-pmo/01-discovery/MISSION.md', done: false }]
       },
       '17-pm': {
-        id: '17',
+        num: '17',
         name: 'Project Manager Agent',
         area: 'PMO & Projetos',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Gestão tática e acompanhamento diário das tarefas dos projetos ativos.',
@@ -1577,12 +1400,11 @@
         files: [{ name: 'project/05-agents/17-project-manager/01-discovery/MISSION.md', done: false }]
       },
       '18-planning': {
-        id: '18',
+        num: '18',
         name: 'Project Planning Agent',
         area: 'PMO & Projetos',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Elaboração de cronogramas, matrizes de dependência e divisão de etapas.',
@@ -1590,12 +1412,11 @@
         files: [{ name: 'project/05-agents/18-project-planning/01-discovery/MISSION.md', done: false }]
       },
       '19-meeting': {
-        id: '19',
+        num: '19',
         name: 'Meeting Agent',
         area: 'PMO & Projetos',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Pautas, atas estruturadas e extração de compromissos das reuniões.',
@@ -1603,12 +1424,11 @@
         files: [{ name: 'project/05-agents/19-meeting/01-discovery/MISSION.md', done: false }]
       },
       '20-risk': {
-        id: '20',
+        num: '20',
         name: 'Risk Agent',
         area: 'PMO & Projetos',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Identificação preventiva de riscos de prazo, escopo e adesão nos projetos.',
@@ -1616,12 +1436,11 @@
         files: [{ name: 'project/05-agents/20-risk/01-discovery/MISSION.md', done: false }]
       },
       '21-cs': {
-        id: '21',
+        num: '21',
         name: 'Customer Success Agent',
         area: 'Customer Success',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 3)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 3)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Garantir a satisfação, adesão cultural e retenção longa de clientes.',
@@ -1629,12 +1448,11 @@
         files: [{ name: 'project/05-agents/21-customer-success/01-discovery/MISSION.md', done: false }]
       },
       '22-account': {
-        id: '22',
+        num: '22',
         name: 'Account Management Agent',
         area: 'Customer Success',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 3)',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 3)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Expansão de contas ativas, renovações semestrais e demandas do Hub Severino.',
@@ -1642,12 +1460,11 @@
         files: [{ name: 'project/05-agents/22-account-management/01-discovery/MISSION.md', done: false }]
       },
       '23-implementation': {
-        id: '23',
+        num: '23',
         name: 'Implementation Agent',
-        area: 'Operações & Implementação',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
+        area: 'Operações & Entrega',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Execução técnica dos setups de ferramentas (ClickUp, Google Workspace).',
@@ -1655,12 +1472,11 @@
         files: [{ name: 'project/05-agents/23-implementation/01-discovery/MISSION.md', done: false }]
       },
       '24-process': {
-        id: '24',
+        num: '24',
         name: 'Process Agent',
-        area: 'Operações & Implementação',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
+        area: 'Operações & Entrega',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Mapeamento de fluxos e redação de Procedimentos Operacionais Padrão (POPs).',
@@ -1668,12 +1484,11 @@
         files: [{ name: 'project/05-agents/24-process/01-discovery/MISSION.md', done: false }]
       },
       '25-systems': {
-        id: '25',
+        num: '25',
         name: 'Systems Agent',
-        area: 'Operações & Implementação',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
+        area: 'Operações & Entrega',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Administração de licenças, integrações e segurança de ferramentas.',
@@ -1681,12 +1496,11 @@
         files: [{ name: 'project/05-agents/25-systems/01-discovery/MISSION.md', done: false }]
       },
       '26-automation': {
-        id: '26',
+        num: '26',
         name: 'Automation Agent',
-        area: 'Operações & Implementação',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
+        area: 'Operações & Entrega',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Desenvolvimento e manutenção de webhooks, scripts e automações em Make/n8n.',
@@ -1694,12 +1508,11 @@
         files: [{ name: 'project/05-agents/26-automation/01-discovery/MISSION.md', done: false }]
       },
       '34-ops': {
-        id: '34',
+        num: '34',
         name: 'Operations Agent',
-        area: 'Operações & Implementação',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
+        area: 'Operações & Entrega',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Coordenação transversal das operações internas e alocação de capacidade.',
@@ -1707,12 +1520,11 @@
         files: [{ name: 'project/05-agents/34-operations/01-discovery/MISSION.md', done: false }]
       },
       '02-strategy': {
-        id: '02',
+        num: '02',
         name: 'Strategy Agent',
-        area: 'Estratégia & Inteligência',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 4)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 4)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1, 2 e 3',
         mission: 'Planejamento estratégico de médio e longo prazo para a Vieira Digital.',
@@ -1720,12 +1532,11 @@
         files: [{ name: 'project/05-agents/02-strategy/01-discovery/MISSION.md', done: false }]
       },
       '03-research': {
-        id: '03',
+        num: '03',
         name: 'Research Agent',
-        area: 'Estratégia & Inteligência',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 4)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 4)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 (Público)',
         mission: 'Pesquisa profunda de tendências de mercado, benchmarks e novas tecnologias de IA.',
@@ -1733,12 +1544,11 @@
         files: [{ name: 'project/05-agents/03-research/01-discovery/MISSION.md', done: false }]
       },
       '27-ai': {
-        id: '27',
+        num: '27',
         name: 'AI Architect Agent',
-        area: 'IA & Conhecimento',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 4)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 4)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Arquitetura de modelos de linguagem, engenharia de prompts e pipelines de IA.',
@@ -1746,12 +1556,11 @@
         files: [{ name: 'project/05-agents/27-ai-architect/01-discovery/MISSION.md', done: false }]
       },
       '28-knowledge': {
-        id: '28',
+        num: '28',
         name: 'Knowledge Agent',
-        area: 'IA & Conhecimento',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
         mission: 'Gestão da memória de longo prazo, Knowledge Items (KIs) e documentação corporativa.',
@@ -1759,12 +1568,11 @@
         files: [{ name: 'project/05-agents/28-knowledge/01-discovery/MISSION.md', done: false }]
       },
       '29-data': {
-        id: '29',
+        num: '29',
         name: 'Data Agent',
-        area: 'Inteligência & Analytics',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 4)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 4)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2 (Operacional)',
         mission: 'Consolidação de métricas operacionais, financeiras e dashboards executivos.',
@@ -1772,12 +1580,11 @@
         files: [{ name: 'project/05-agents/29-data/01-discovery/MISSION.md', done: false }]
       },
       '30-finance': {
-        id: '30',
+        num: '30',
         name: 'Finance Agent',
-        area: 'Financeiro [Restrito]',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 4)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 4)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 3 (Restrito / Financeiro)',
         mission: 'Gestão de fluxo de caixa, conciliação bancária e integração Contabilizei.',
@@ -1785,12 +1592,11 @@
         files: [{ name: 'project/05-agents/30-finance/01-discovery/MISSION.md', done: false }]
       },
       '31-quality': {
-        id: '31',
+        num: '31',
         name: 'Quality (QA) Agent',
-        area: 'Qualidade Transversal',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 2)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2',
         mission: 'Auditoria cruzada e controle de qualidade de todos os entregáveis do sistema.',
@@ -1798,12 +1604,11 @@
         files: [{ name: 'project/05-agents/31-quality/01-discovery/MISSION.md', done: false }]
       },
       '32-assistant': {
-        id: '32',
+        num: '32',
         name: 'Executive Assistant Agent',
-        area: 'Suporte Executivo',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 4)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 4)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 1 e 2',
         mission: 'Gestão de agenda, lembretes de prioridades e triagem de comunicações para o CEO.',
@@ -1811,12 +1616,11 @@
         files: [{ name: 'project/05-agents/32-executive-assistant/01-discovery/MISSION.md', done: false }]
       },
       '33-legal': {
-        id: '33',
+        num: '33',
         name: 'Legal Agent',
-        area: 'Jurídico [Restrito]',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Ciclo 4)',
+        area: 'Inteligência & IA',
         statusClass: 'backlog',
+        statusLabel: 'Backlog (Ciclo 4)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 3 (Restrito / Jurídico)',
         mission: 'Compliance, termos contratuais, NDAs e proteção jurídica da empresa.',
@@ -1825,37 +1629,27 @@
       }
     };
 
-    let currentOpenKey = null;
+    function openAgent(key, element) {
+      const a = agentsData[key];
+      if (!a) return;
 
-    function openDrawer(key) {
-      currentOpenKey = key;
-      const a = agentsData[key] || {
-        id: key.split('-')[0],
-        name: 'Agente em Backlog',
-        area: 'Área Operacional',
-        status: 'BACKLOG',
-        statusLabel: 'Backlog (Planejado)',
-        statusClass: 'backlog',
-        trust: 'C1 (Supervisionado)',
-        access: 'Nível Operacional',
-        mission: 'Este agente faz parte da arquitetura organizacional do v.os e será construído no seu respectivo ciclo.',
-        responsibilities: ['Aguardando início do ciclo de 9 fases.'],
-        files: [{ name: 'project/05-agents/MISSION.md', done: false }]
-      };
+      // Update card visual selection
+      document.querySelectorAll('.exec-card, .agent-card').forEach(el => el.classList.remove('selected'));
+      if (element) element.classList.add('selected');
 
-      document.getElementById('dId').innerText = a.id;
+      document.getElementById('dNum').innerText = a.num;
       document.getElementById('dName').innerText = a.name;
       document.getElementById('dArea').innerText = a.area;
-      
-      const dMeta = document.getElementById('dMeta');
-      dMeta.innerHTML = `
-        <span class="meta-pill status-tag ${a.statusClass}">${a.statusLabel}</span>
-        <span class="meta-pill">${a.trust}</span>
-        <span class="meta-pill">${a.access}</span>
+
+      const dPills = document.getElementById('dPills');
+      dPills.innerHTML = `
+        <span class="pill ${a.statusClass}">${a.statusLabel}</span>
+        <span class="pill">${a.trust}</span>
+        <span class="pill">${a.access}</span>
       `;
 
       document.getElementById('dMission').innerText = a.mission;
-      
+
       const dResp = document.getElementById('dResp');
       dResp.innerHTML = a.responsibilities.map(r => `<li>${r}</li>`).join('');
 
@@ -1863,37 +1657,32 @@
       dFiles.innerHTML = a.files.map(f => {
         const url = GITHUB_BASE + f.name;
         return `
-          <a href="${url}" target="_blank" rel="noopener noreferrer" class="file-link-item">
+          <a href="${url}" target="_blank" rel="noopener noreferrer" class="file-item">
             <span>${f.name.split('/').pop()}</span>
-            <span class="file-status ${f.done ? '' : 'pending'}">${f.done ? '✓ Documentado' : '○ Pendente'}</span>
+            <span class="file-tag ${f.done ? '' : 'pending'}">${f.done ? '✓ Pronto' : '○ Pendente'}</span>
           </a>
         `;
       }).join('');
 
-      // Update active selection state on cards
-      document.querySelectorAll('.agent-card, .leader-card').forEach(el => el.classList.remove('active-selected'));
-      const activeCard = document.querySelector(`[onclick="openDrawer('${key}')"]`);
-      if (activeCard) activeCard.classList.add('active-selected');
-
-      document.getElementById('drawerOverlay').classList.add('open');
       document.getElementById('sideDrawer').classList.add('open');
     }
 
-    function closeDrawer(e) {
-      if (e && e.target !== document.getElementById('drawerOverlay') && !e.target.classList.contains('drawer-close-btn')) {
-        // Only close if clicking backdrop or X button
-        return;
-      }
-      document.querySelectorAll('.agent-card, .leader-card').forEach(el => el.classList.remove('active-selected'));
-      document.getElementById('drawerOverlay').classList.remove('open');
+    function closeDrawer() {
+      document.querySelectorAll('.exec-card, .agent-card').forEach(el => el.classList.remove('selected'));
       document.getElementById('sideDrawer').classList.remove('open');
-      currentOpenKey = null;
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeDrawer();
-      }
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    // Close when clicking anywhere outside drawer and cards
+    document.addEventListener('click', (e) => {
+      const drawer = document.getElementById('sideDrawer');
+      if (!drawer.classList.contains('open')) return;
+      if (drawer.contains(e.target)) return;
+      if (e.target.closest('.agent-card') || e.target.closest('.exec-card')) return;
+      closeDrawer();
     });
   </script>
 </body>
