@@ -736,8 +736,8 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">12 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 34% do Sistema Ativo</div>
+          <div class="kpi-value">13 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 37% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -922,14 +922,14 @@
             <div class="squad-head">
               <span class="squad-title">PMO & Projetos</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
-                <span class="progress-label">0/5</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 20%;"></div></div>
+                <span class="progress-label">1/5</span>
               </div>
             </div>
             <div class="agent-stack">
               <div class="agent-card" onclick="openAgent('16-pmo', this)">
                 <div class="agent-card-left"><div class="agent-num">16</div><span class="agent-label">PMO Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('17-pm', this)">
                 <div class="agent-card-left"><div class="agent-num">17</div><span class="agent-label">Project Manager Agent</span></div>
@@ -1431,13 +1431,26 @@
         num: '16',
         name: 'PMO Agent',
         area: 'PMO & Projetos',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 2)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
-        access: 'Nível 2 (Operacional)',
-        mission: 'Governança global de projetos, capacidade de equipe e prazos.',
-        responsibilities: ['Supervisão de portfólio de contas.', 'Controle de marcos e SLAs.'],
-        files: [{ name: 'project/05-agents/16-pmo/01-discovery/MISSION.md', done: false }]
+        access: 'Nível 2 (Operacional / Clientes)',
+        mission: 'Guardião da governança operacional, capacidade elástica e saúde de projetos em tempo real.',
+        responsibilities: [
+          'Supervisão do Sub-Agente 16.1 (Portfolio & Capacity Tracker - 7+ implementações simultâneas e Hub Severino).',
+          'Supervisão do Sub-Agente 16.2 (QA de Marcos & Definition of Done - Checklist pré-Call Final de Entrega).',
+          'Supervisão do Sub-Agente 16.3 (Resumo Diário por cliente e escalação imediata de bloqueios para o CEO).',
+          'Supervisão direta dos Agentes 17 (Project Manager), 18 (Planning), 19 (Meeting) e 20 (Risk).'
+        ],
+        files: [
+          { name: 'project/05-agents/16-pmo/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/16-pmo/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/16-pmo/02-questionnaire/ANSWERS.md', done: true },
+          { name: 'project/05-agents/16-pmo/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/16-pmo/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/16-pmo/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/16-pmo/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '17-pm': {
         num: '17',
