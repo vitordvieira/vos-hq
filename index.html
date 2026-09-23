@@ -736,8 +736,8 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">13 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 37% do Sistema Ativo</div>
+          <div class="kpi-value">14 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 40% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -922,8 +922,8 @@
             <div class="squad-head">
               <span class="squad-title">PMO & Projetos</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 20%;"></div></div>
-                <span class="progress-label">1/5</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 40%;"></div></div>
+                <span class="progress-label">2/5</span>
               </div>
             </div>
             <div class="agent-stack">
@@ -933,7 +933,7 @@
               </div>
               <div class="agent-card" onclick="openAgent('17-pm', this)">
                 <div class="agent-card-left"><div class="agent-num">17</div><span class="agent-label">Project Manager Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('18-planning', this)">
                 <div class="agent-card-left"><div class="agent-num">18</div><span class="agent-label">Project Planning Agent</span></div>
@@ -1456,13 +1456,26 @@
         num: '17',
         name: 'Project Manager Agent',
         area: 'PMO & Projetos',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 2)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
-        access: 'Nível 2 (Operacional)',
-        mission: 'Gestão tática e acompanhamento diário das tarefas dos projetos ativos.',
-        responsibilities: ['Acompanhamento de sprints e bloqueios.', 'Comunicação diária de progresso.'],
-        files: [{ name: 'project/05-agents/17-project-manager/01-discovery/MISSION.md', done: false }]
+        access: 'Nível 2 (Operacional / Clientes)',
+        mission: 'Gestão tática e relacionamento operacional direto com clientes pagantes sob blindagem DEC-036.',
+        responsibilities: [
+          'Supervisão do Sub-Agente 17.1 (Sprint Tracker & Touchpoints: 3 calls com decisores + sessões de adesão com o time).',
+          'Supervisão do Sub-Agente 17.2 (Relatórios de status estruturados a cada 5 dias: 6 para 30d ou 9 para 45d).',
+          'Supervisão do Sub-Agente 17.3 (Acolhimento e monetização imediata de pedidos fora de escopo via Hub Severino / Sprints IA).',
+          'Alimentação diária do status de clientes para o PMO Agent (16) com tolerância zero a travamentos.'
+        ],
+        files: [
+          { name: 'project/05-agents/17-project-manager/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/17-project-manager/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/17-project-manager/02-questionnaire/ANSWERS.md', done: true },
+          { name: 'project/05-agents/17-project-manager/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/17-project-manager/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/17-project-manager/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/17-project-manager/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '18-planning': {
         num: '18',
