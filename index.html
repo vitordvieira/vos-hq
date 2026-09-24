@@ -736,8 +736,8 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">14 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 40% do Sistema Ativo</div>
+          <div class="kpi-value">15 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 42% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -922,8 +922,8 @@
             <div class="squad-head">
               <span class="squad-title">PMO & Projetos</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 40%;"></div></div>
-                <span class="progress-label">2/5</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 60%;"></div></div>
+                <span class="progress-label">3/5</span>
               </div>
             </div>
             <div class="agent-stack">
@@ -937,7 +937,7 @@
               </div>
               <div class="agent-card" onclick="openAgent('18-planning', this)">
                 <div class="agent-card-left"><div class="agent-num">18</div><span class="agent-label">Project Planning Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('19-meeting', this)">
                 <div class="agent-card-left"><div class="agent-num">19</div><span class="agent-label">Meeting Agent</span></div>
@@ -1481,13 +1481,26 @@
         num: '18',
         name: 'Project Planning Agent',
         area: 'PMO & Projetos',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 2)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ciclo 2)',
         trust: 'C1 (Supervisionado)',
-        access: 'Nível 2 (Operacional)',
-        mission: 'Elaboração de cronogramas, matrizes de dependência e divisão de etapas.',
-        responsibilities: ['Estruturação de cronogramas em 4 fases.', 'Alocação de esforço e prazos.'],
-        files: [{ name: 'project/05-agents/18-project-planning/01-discovery/MISSION.md', done: false }]
+        access: 'Nível 2 (Operacional / Clientes)',
+        mission: 'Engenheiro de cronogramas ágeis, modelador de trilhas paralelas e motor de datação.',
+        responsibilities: [
+          'Supervisão do Sub-Agente 18.1 (Templates ClickUp customizados e parametrizados por nicho).',
+          'Supervisão do Sub-Agente 18.2 (Modelagem de trilhas paralelas reais: VSL, Páginas, Ads e Infraestrutura).',
+          'Supervisão do Sub-Agente 18.3 (Motor de datação em dias úteis com margem de segurança antes do Dia D).',
+          'Eliminação de gargalos burocráticos e entrega de cronogramas vivos no ClickUp para o PM (17).'
+        ],
+        files: [
+          { name: 'project/05-agents/18-project-planning/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/18-project-planning/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/18-project-planning/02-questionnaire/ANSWERS.md', done: true },
+          { name: 'project/05-agents/18-project-planning/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/18-project-planning/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/18-project-planning/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/18-project-planning/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '19-meeting': {
         num: '19',
