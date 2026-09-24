@@ -736,14 +736,14 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">15 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 42% do Sistema Ativo</div>
+          <div class="kpi-value">17 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 48% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Núcleos Aprovados</span>
-          <div class="kpi-value">3 / 7</div>
-          <div class="kpi-sub">Revenue, Produto & Marketing (100%)</div>
+          <div class="kpi-value">4 / 7</div>
+          <div class="kpi-sub">Revenue, Produto, Marketing & PMO (100%)</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -941,11 +941,11 @@
               </div>
               <div class="agent-card" onclick="openAgent('19-meeting', this)">
                 <div class="agent-card-left"><div class="agent-num">19</div><span class="agent-label">Meeting Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('20-risk', this)">
                 <div class="agent-card-left"><div class="agent-num">20</div><span class="agent-label">Risk Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <span class="status-dot approved"></span>
               </div>
             </div>
           </div>
@@ -1506,25 +1506,47 @@
         num: '19',
         name: 'Meeting Agent',
         area: 'PMO & Projetos',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 2)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ativo)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
-        mission: 'Pautas, atas estruturadas e extração de compromissos das reuniões.',
-        responsibilities: ['Resumos executivos pós-reunião.', 'Geração automática de itens de ação.'],
-        files: [{ name: 'project/05-agents/19-meeting/01-discovery/MISSION.md', done: false }]
+        mission: 'Inteligência de reuniões, atas visuais executivas (ClickUp Docs) e triagem profunda de tarefas com briefing denso.',
+        responsibilities: [
+          'Processamento e transcrição integral de calls de alinhamento e kickoffs.',
+          'Triagem profunda: criação de tarefas inéditas com briefing denso vs atualização de existentes.',
+          'Geração de atas no padrão visual corporativo (Apple/Stripe) com tag [REVISAR_RESPONSAVEL].'
+        ],
+        files: [
+          { name: 'project/05-agents/19-meeting/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/19-meeting/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/19-meeting/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/19-meeting/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/19-meeting/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/19-meeting/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '20-risk': {
         num: '20',
         name: 'Risk Agent',
         area: 'PMO & Projetos',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 2)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ativo)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
-        mission: 'Identificação preventiva de riscos de prazo, escopo e adesão nos projetos.',
-        responsibilities: ['Matriz de probabilidade e impacto.', 'Planos de contingência rápidos.'],
-        files: [{ name: 'project/05-agents/20-risk/01-discovery/MISSION.md', done: false }]
+        mission: 'Sentinela de riscos, antecipação de gargalos (12h/24h), monetização de escopo extra e auditoria de adesão (<70%).',
+        responsibilities: [
+          'Monitoramento rápido de SLA e escalação de gargalos (12h PM / 24h CEO).',
+          'Monetização e precificação de pedidos fora de escopo (Add-ons via Hub Severino).',
+          'Auditoria semanal de uso do ClickUp e engajamento cultural da equipe do cliente.'
+        ],
+        files: [
+          { name: 'project/05-agents/20-risk/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/20-risk/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/20-risk/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/20-risk/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/20-risk/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/20-risk/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '21-cs': {
         num: '21',
