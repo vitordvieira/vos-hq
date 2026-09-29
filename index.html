@@ -736,14 +736,14 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">18 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 51% do Sistema Ativo</div>
+          <div class="kpi-value">19 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 54% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Núcleos Aprovados</span>
-          <div class="kpi-value">4 / 7</div>
-          <div class="kpi-sub">Revenue, Produto, Marketing & PMO (100%)</div>
+          <div class="kpi-value">5 / 7</div>
+          <div class="kpi-sub">Revenue, Produto, Mkt, PMO & CS (100%)</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -955,8 +955,8 @@
             <div class="squad-head">
               <span class="squad-title">Customer Success</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 50%;"></div></div>
-                <span class="progress-label">1/2</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+                <span class="progress-label">2/2</span>
               </div>
             </div>
             <div class="agent-stack">
@@ -965,8 +965,8 @@
                 <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('22-account', this)">
-                <div class="agent-card-left"><div class="agent-num">22</div><span class="agent-label">Account Management</span></div>
-                <span class="status-dot backlog"></span>
+                <div class="agent-card-left"><div class="agent-num">22</div><span class="agent-label">Account Management Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
             </div>
           </div>
@@ -1575,13 +1575,24 @@
         num: '22',
         name: 'Account Management Agent',
         area: 'Customer Success',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 3)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ativo)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
-        mission: 'Expansão de contas ativas, renovações semestrais e demandas do Hub Severino.',
-        responsibilities: ['Gestão de LTV e upsells.', 'Renovações de contratos de governança.'],
-        files: [{ name: 'project/05-agents/22-account-management/01-discovery/MISSION.md', done: false }]
+        mission: 'Gestor de carteira de clientes ativos, renovação flexível mês a mês pós-6m, relatórios assíncronos e programa de indicação.',
+        responsibilities: [
+          'Acompanhamento mensal 100% assíncrono via relatório executivo no WhatsApp (zero calls desnecessárias).',
+          'Gestão de renovação da Governança Contínua (6 meses obrigatórios seguidos de mês a mês com saída livre).',
+          'Ativação do programa de indicação de novos clientes para clientes promotores (NPS 9-10).'
+        ],
+        files: [
+          { name: 'project/05-agents/22-account-management/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/22-account-management/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/22-account-management/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/22-account-management/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/22-account-management/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/22-account-management/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '23-implementation': {
         num: '23',
