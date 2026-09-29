@@ -736,8 +736,8 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">17 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 48% do Sistema Ativo</div>
+          <div class="kpi-value">18 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 51% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -955,14 +955,14 @@
             <div class="squad-head">
               <span class="squad-title">Customer Success</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
-                <span class="progress-label">0/2</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 50%;"></div></div>
+                <span class="progress-label">1/2</span>
               </div>
             </div>
             <div class="agent-stack">
               <div class="agent-card" onclick="openAgent('21-cs', this)">
-                <div class="agent-card-left"><div class="agent-num">21</div><span class="agent-label">Customer Success</span></div>
-                <span class="status-dot backlog"></span>
+                <div class="agent-card-left"><div class="agent-num">21</div><span class="agent-label">Customer Success Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('22-account', this)">
                 <div class="agent-card-left"><div class="agent-num">22</div><span class="agent-label">Account Management</span></div>
@@ -1552,13 +1552,24 @@
         num: '21',
         name: 'Customer Success Agent',
         area: 'Customer Success',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 3)',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ativo)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
-        mission: 'Garantir a satisfação, adesão cultural e retenção longa de clientes.',
-        responsibilities: ['Check-ins periódicos de saúde de conta.', 'Prevenção ativa de cancelamentos.'],
-        files: [{ name: 'project/05-agents/21-customer-success/01-discovery/MISSION.md', done: false }]
+        mission: 'Líder de experiência do cliente, retenção, coleta ativa de NPS em call de entrega e transição para P3 semestral.',
+        responsibilities: [
+          'Coleta ativa de NPS e feedback direto na call final de entrega (~100% de resposta).',
+          'Gestão do suporte prioritário de garantia (15 a 30 dias via WhatsApp + 2 calls de 30 min).',
+          'Aquecimento e transição estruturada para Governança Contínua P3 (R$ 1.000/mês com contrato de 6 meses).'
+        ],
+        files: [
+          { name: 'project/05-agents/21-customer-success/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/21-customer-success/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/21-customer-success/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/21-customer-success/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/21-customer-success/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/21-customer-success/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '22-account': {
         num: '22',
