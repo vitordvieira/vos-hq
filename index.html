@@ -736,8 +736,8 @@
 
         <div class="kpi-mini-card">
           <span class="kpi-label">Cadeiras Ativas</span>
-          <div class="kpi-value">19 / 35</div>
-          <div class="kpi-sub"><span class="dot green"></span> 54% do Sistema Ativo</div>
+          <div class="kpi-value">20 / 35</div>
+          <div class="kpi-sub"><span class="dot green"></span> 57% do Sistema Ativo</div>
         </div>
 
         <div class="kpi-mini-card">
@@ -889,14 +889,14 @@
             <div class="squad-head">
               <span class="squad-title">Operações & Entrega</span>
               <div class="squad-progress-box">
-                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
-                <span class="progress-label">0/5</span>
+                <div class="progress-track"><div class="progress-fill" style="width: 20%;"></div></div>
+                <span class="progress-label">1/5</span>
               </div>
             </div>
             <div class="agent-stack">
               <div class="agent-card" onclick="openAgent('34-ops', this)">
-                <div class="agent-card-left"><div class="agent-num">34</div><span class="agent-label">Operations Agent</span></div>
-                <span class="status-dot backlog"></span>
+                <div class="agent-card-left"><div class="agent-num">34</div><span class="agent-label">Operations Lead Agent</span></div>
+                <span class="status-dot approved"></span>
               </div>
               <div class="agent-card" onclick="openAgent('23-implementation', this)">
                 <div class="agent-card-left"><div class="agent-num">23</div><span class="agent-label">Implementation Agent</span></div>
@@ -1644,15 +1644,26 @@
       },
       '34-ops': {
         num: '34',
-        name: 'Operations Agent',
-        area: 'Operações & Entrega',
-        statusClass: 'backlog',
-        statusLabel: 'Backlog (Ciclo 2)',
+        name: 'Operations Lead Agent',
+        area: 'Operações & Implementação',
+        statusClass: 'approved',
+        statusLabel: 'Aprovado (Ativo)',
         trust: 'C1 (Supervisionado)',
         access: 'Nível 2 (Operacional)',
-        mission: 'Coordenação transversal das operações internas e alocação de capacidade.',
-        responsibilities: ['Monitoramento de gargalos internos.', 'Garantia do cumprimento do padrão operacional.'],
-        files: [{ name: 'project/05-agents/34-operations/01-discovery/MISSION.md', done: false }]
+        mission: 'Diretor técnico de operações, replicação acelerada de templates de ClickUp, testes etapa por etapa e playbooks em OBS Studio.',
+        responsibilities: [
+          'Replicação de templates proprietários de ClickUp (<24h) e customização pós-diagnóstico.',
+          'Bateria de homologação técnica individual em cada fluxo e permissão de usuário.',
+          'Organização de playbooks gravados em OBS Studio e documentação no ClickUp Docs.'
+        ],
+        files: [
+          { name: 'project/05-agents/34-operations/01-discovery/MISSION.md', done: true },
+          { name: 'project/05-agents/34-operations/02-questionnaire/QUESTIONNAIRE.md', done: true },
+          { name: 'project/05-agents/34-operations/03-specification/SPECIFICATION.md', done: true },
+          { name: 'project/05-agents/34-operations/04-prompt/SYSTEM-PROMPT.md', done: true },
+          { name: 'project/05-agents/34-operations/05-workflows/WORKFLOWS.md', done: true },
+          { name: 'project/05-agents/34-operations/06-tests/TEST-CASES.md', done: true }
+        ]
       },
       '02-strategy': {
         num: '02',
